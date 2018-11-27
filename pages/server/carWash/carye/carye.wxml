@@ -1,0 +1,42 @@
+<view class="all">
+    <view class="selectTitle">
+        <image src="http://img.zhangjiamenhu.com/xiche.png" class="allimg"></image>
+    </view>
+     <radio-group class="oneSelect" bindchange="radioChange">   
+        <view class="select">
+        <text style="color:{{color1}};">夜间洗车</text> 
+        <!--<radio value="month" ></radio>-->
+        </view>     
+    </radio-group>
+       <view class="selectTitle">
+        <image src="http://img.zhangjiamenhu.com/cheliang.png" class="allimg"></image>
+        </view>
+
+        <view class="carMessage">
+            <text >车型品牌</text>
+            <input bindblur="carBrand" type="text" placeholder="例：奥迪" />
+        </view>
+
+        <view class="carMessage">
+            <text >车牌号</text>
+            <input bindblur="carNumber" type="text" placeholder="例：闽Dxxxxxx" />
+        </view>
+
+        <view class="carMessage">
+            <text >车身颜色</text>
+            <input bindblur="carColor" type="text" placeholder="例：黑色" />
+        </view>
+
+        <view class="carMessage">
+            <text >停靠位置</text>
+            <input bindblur="carPlace" type="text" placeholder="例：车库内、小区外或几号" />
+        </view>
+        <view class="bottom">
+        <view class="left">
+            <text class="price">￥{{price}}</text>
+            <text class="times">(请于晚上十点前下单)</text>
+            <text class="time">仅于晚上十点到凌晨四点提供服务</text>
+        </view>
+            <button type="primary" class="pay" bindtap="judge">去支付</button>  
+        </view>
+</view>

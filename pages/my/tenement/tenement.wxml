@@ -1,0 +1,19 @@
+
+<view class="container">
+  <view class="table">
+    <view class="tr">
+      <view class="th">租户姓名</view>
+      <view class="th">租户电话</view>
+      <view class="th">操作</view>
+    </view>
+    <view wx:if="{{hasPerson}}">
+      <view class="tr" wx:for="{{Tenants}}" wx:key="vice_id">
+        <view class="td">{{item.name}}</view>
+        <view class="td">{{item.phone}}</view>
+        <view class="td" bindtap="deleteTenants" data-mid="{{item.vice_id}}">
+          <text class="shanchu">删除租客</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

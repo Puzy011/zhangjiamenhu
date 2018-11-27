@@ -1,0 +1,31 @@
+/* pages/my/approve/approve.wxss */
+/* @import "/pages/public/public.wxss"; */
+page{
+  background: #fff;
+}
+.all{
+  background: #fff;
+}
+.headline {
+  font-size: 1.6em;
+  display: block;
+  text-align: center;
+}
+
+.content text{
+  font-family: 微软雅黑;
+  color: #555;
+  font-size: 0.6em;
+  float: left;
+   padding:0 8%; 
+}
+.content > .title{
+  font-family: 微软雅黑;
+  color: #555;
+  float: left;
+  padding: 0 8%;
+  font-size: 0.8em;
+}
+.txt text {
+  line-height: 20px;
+}

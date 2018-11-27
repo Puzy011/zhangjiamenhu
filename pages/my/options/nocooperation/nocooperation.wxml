@@ -1,0 +1,42 @@
+<form bindsubmit="formSubmit" >
+        <image src="{{kaisuotp}}" class="topimag" bindtap="chooseLocation"></image>      
+        <view class="xiaoqu">{{xiaoqu}}</view>
+        <text class="top_text">{{state}}</text>
+        <view class="carMessage">
+            <text >+86</text>
+            <input bindinput="phone" type="number" name="userphone" maxlength="11" placeholder="{{phone}}"  />
+        </view>
+
+        <view class="carMessage">
+            <text >姓名</text>
+            <input bindinput="Name" type="text" name="username" placeholder="{{Name}}" datatype="chinese"/>
+        </view>
+
+        <view class="carMessage">
+            <text >地址</text>
+            <input bindinput="Building" type="text" name="userbuild" placeholder="{{Building}}" value="{{dizhi}}"/>
+        </view>
+
+        <view class="carMessage">
+            <text >银行卡号</text>
+            <input bindinput="wyuserTo" maxlength="23" type="text" name="wyuser" placeholder="{{wyuser}}" />
+        </view>
+        <view class="carMessage">
+            <text >物业名称</text>
+            <input bindinput="wynameTo" type="text" name="wyname" placeholder="请输入物业的名称" />
+        </view>
+        <view class="carMessage">
+            <text >小区名字</text>
+            <input bindinput="plotTo" type="text" name="plot" placeholder="请输入小区的名字" />
+        </view>
+        <view class="carMessage">
+            <text >银行类型</text>
+            <input bindinput="bankTo" type="text" name="bank" placeholder="请输入所属银行" />
+        </view>
+        <view class="carMessage">
+            <text >物业电话</text>
+            <input bindinput="wyphoneTo" type="number" name="wyphone" placeholder="请输入物业电话" />
+        </view>
+        <view class="tip">{{tip}}</view> 
+        <button formType="submit" class="submit" type="primary" bindtap="buttonTo">提交</button>
+</form>

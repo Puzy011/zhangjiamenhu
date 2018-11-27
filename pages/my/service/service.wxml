@@ -1,0 +1,6 @@
+<!--pages/my/service/service.wxml-->
+<view class="kefubox">
+  <text class="weixin">微信：XMY-Mall</text> 
+  <text class="phone">电话：0592-2199500</text>
+  <button bindtap="dianhua"  class="call">拨打掌家电话</button>
+</view>

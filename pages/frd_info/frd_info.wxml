@@ -1,0 +1,159 @@
+<!--正在加载-->
+<view class="loding linght tc mt10" wx:if="{{isLoaded}}">
+  <text class="iconfont icon-jiazai mr10 f18"></text>
+  <text>正在加载</text>
+</view>
+<!-- <block wx:if="{{!isLoaded}}"> -->
+  <view class="user-info tc bgwhite mb10">
+    <view class="user-container">
+      <image src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJFF5K2ZxqUa9q8OTACqbsOZQ2LeEM0HP6K8xFoXjPD2RYuLrVvrbMQk3rHIH1nkcbpy63KdScNA/0" class="avatar"></image>
+      <view class="nickname mt10">道姑朋友{{nickname}}</view>
+    </view>
+    <view class="flex mt20">
+      <view class="sub gridYr">
+        <view class="title">发表数</view>
+        <view class="remark">11{{info_count}}</view>
+      </view>
+      <view class="sub gridYr">
+        <view class="title">总阅读量</view>
+        <view class="remark">1111{{total_click}}</view>
+      </view>
+      <view class="sub">
+        <view class="title">总赞数</view>
+        <view class="remark">111{{total_good}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view>
+        <import src="../tpl.wxml" />
+        <template is="list" data="{{data,styles,comment,config}}" />
+    </view> -->
+  <!-- <view> -->
+    <view class="msg-list mb10 bgwhite" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+      <view class="flex" style="align-items:center;">
+        <image class="left-img" catchtap="onNavigateTap" data-url="../frd_info/frd_info?uid={{uid}}" mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJFF5K2ZxqUa9q8OTACqbsOZQ2LeEM0HP6K8xFoXjPD2RYuLrVvrbMQk3rHIH1nkcbpy63KdScNA/0"></image>
+        <view class="sub ml10 user-msg">
+          <view class="user-name">道姑朋友 </view>
+          <view class="f12 grey mt5">
+            <text>前天18:51</text>
+          </view>
+        </view>
+        <!-- <view class="contact gridFour red mr5" data-mobile="15036036796">联系Ta</view> -->
+      </view>
+      <view class="user-content mt15" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦</view>
+      <!-- <view class="content-img clearfix mt10" data-urls="http://xrs.duoguan.com/2017-11-21_5a14052503eef.jpg,http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg,http://xrs.duoguan.com/2017-11-21_5a140525eed26.jpg,http://xrs.duoguan.com/2017-11-21_5a140526a0ce6.jpg,http://xrs.duoguan.com/2017-11-21_5a1405275f4ea.jpg,http://xrs.duoguan.com/2017-11-21_5a140527cdf98.jpg">...</view> -->
+      <view class="mt10 grey"></view>
+      <view class="img-list fl" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+        <image data-index="1" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+      </view>
+      <view class="img-list fl">
+        <image data-index="1" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+      </view>
+      <view class="img-list fl">
+        <image data-index="2" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a140525eed26.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+        <view class="more-img tc" data-index="2">+3</view>
+      </view>
+      <view class="place mt10 grey f12">
+        <!-- <text class="iconfont icon-locationfill mr5">河南省郑州市金水区文化路与龙门路交叉口西100米</text>  -->
+      </view>
+      <view class="grey flex mt10 gridXt f12" style="align-items:center;padding-top:5px;">
+        <view class="sub classify red" data-invalid="false" data-url="../lists/lists?cid=1545&title=花木供应&childCid=0">##</view>
+        <view class="f16 linght">
+          <view class="iconBtn" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+            <text class="mr5 iconfont icon-attention"></text> 23
+          </view>
+          <view class="iconBtn" data-doc-id="262069" data-index="0" data-nickname="吉祥花卉">
+            <text class="mr5 iconfont icon-comment"></text> 0
+          </view>
+          <!-- <view class="iconBtn" data-id="262069" data-index="0">
+          <text class="mr5 iconfont icon-appreciate icon-appreciate"></text> 2
+        </view> -->
+
+        </view>
+      </view>
+      <view class="comment mt10" data-index="3">
+        <view>
+          <view class="comment-item">
+            <text class="blue mr5" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>aaaaaaaaa</text>
+          </view>
+          <view class="comment-item">
+            <text class="blue" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友</text>
+            <text>回复</text>
+            <text class="blue mr5" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>aaaaaaaaaa</text>
+          </view>
+        </view>
+        <view>
+          <view class="comment-item">
+            <text class="blue mr5" data-comment-index="1" data-nickname="你的一个道姑朋友" data-reply-id="97561" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>1111111</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="msg-list mb10 bgwhite" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+      <view class="flex" style="align-items:center;">
+        <image class="left-img" catchtap="onNavigateTap" data-url="../frd_info/frd_info?uid={{uid}}" mode="aspectFill" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJJFF5K2ZxqUa9q8OTACqbsOZQ2LeEM0HP6K8xFoXjPD2RYuLrVvrbMQk3rHIH1nkcbpy63KdScNA/0"></image>
+        <view class="sub ml10 user-msg">
+          <view class="user-name">道姑朋友 </view>
+          <view class="f12 grey mt5">
+            <text>前天18:51</text>
+          </view>
+        </view>
+        <!-- <view class="contact gridFour red mr5" data-mobile="15036036796">联系Ta</view> -->
+      </view>
+      <view class="user-content mt15" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦邻里圈发布啦</view>
+      <!-- <view class="content-img clearfix mt10" data-urls="http://xrs.duoguan.com/2017-11-21_5a14052503eef.jpg,http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg,http://xrs.duoguan.com/2017-11-21_5a140525eed26.jpg,http://xrs.duoguan.com/2017-11-21_5a140526a0ce6.jpg,http://xrs.duoguan.com/2017-11-21_5a1405275f4ea.jpg,http://xrs.duoguan.com/2017-11-21_5a140527cdf98.jpg">...</view> -->
+      <view class="mt10 grey"></view>
+      <view class="img-list fl" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+        <image data-index="1" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+      </view>
+      <view class="img-list fl">
+        <image data-index="1" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a14052585cbe.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+      </view>
+      <view class="img-list fl">
+        <image data-index="2" mode="aspectFill" src="http://xrs.duoguan.com/2017-11-21_5a140525eed26.jpg?imageView2/1/w/136/h/136/q/75|imageslim"></image>
+        <view class="more-img tc" data-index="2">+3</view>
+      </view>
+      <view class="place mt10 grey f12">
+        <!-- <text class="iconfont icon-locationfill mr5">河南省郑州市金水区文化路与龙门路交叉口西100米</text>  -->
+      </view>
+      <view class="grey flex mt10 gridXt f12" style="align-items:center;padding-top:5px;">
+        <view class="sub classify red" data-invalid="false" data-url="../lists/lists?cid=1545&title=花木供应&childCid=0">##</view>
+        <view class="f16 linght">
+          <view class="iconBtn" catchtap="onNavigateTap" data-url="../detail/detail?id=262069">
+            <text class="mr5 iconfont icon-attention"></text> 23
+          </view>
+          <view class="iconBtn" data-doc-id="262069" data-index="0" data-nickname="吉祥花卉">
+            <text class="mr5 iconfont icon-comment"></text> 0
+          </view>
+          <!-- <view class="iconBtn" data-id="262069" data-index="0">
+          <text class="mr5 iconfont icon-appreciate icon-appreciate"></text> 2
+        </view> -->
+
+        </view>
+      </view>
+      <!-- <view class="comment mt10" data-index="3">
+        <view>
+          <view class="comment-item">
+            <text class="blue mr5" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>aaaaaaaaa</text>
+          </view>
+          <view class="comment-item">
+            <text class="blue" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友</text>
+            <text>回复</text>
+            <text class="blue mr5" data-comment-index="0" data-nickname="你的一个道姑朋友" data-reply-id="92958" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>aaaaaaaaaa</text>
+          </view>
+        </view>
+        <view>
+          <view class="comment-item">
+            <text class="blue mr5" data-comment-index="1" data-nickname="你的一个道姑朋友" data-reply-id="97561" data-uid="4593259">你的一个道姑朋友:</text>
+            <text>1111111</text>
+          </view>
+        </view>
+      </view> -->
+    </view>
+<!-- </block> -->

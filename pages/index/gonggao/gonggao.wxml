@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="page__bd">
+     <view class="weui-panel weui-panel_access">
+       <!-- <view class="weui-panel__hd">图文组合列表</view>  -->
+      <!-- <view class="weui-panel__bd">
+        <navigator url="" wx:for="{{content}}" wx:for-item="item" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{img}}z-day.png" mode="scaleToFill" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" is="{{content.type}}">
+            <view class="weui-media-box__title">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.content}}</view>
+          </view>
+        </navigator>
+        
+      </view> -->
+      <!-- <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </view> -->
+    </view> 
+    <view class="weui-panel">
+      <!-- <view class="weui-panel__hd">文字列表附来源</view> -->
+      <view class="weui-panel__bd">
+        <view wx:for="{{content}}" bindtap="detailTo" data-thisdetail="{{item}}"  wx:key="id" class="weui-media-box weui-media-box_text" style='border-bottom:2rpx solid #eee'>
+          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+          <view class="weui-media-box__desc">{{item.content}} </view>
+          <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta" wx:if="{{item.author=='qswp'}}">浅水湾畔</view>
+            <view class="weui-media-box__info__meta" wx:else>{{item.author==='zj001'||item.author==='zj-xm-qswp'||item.author==='admin'?'掌家门户':item.author}}</view>
+            <view class="weui-media-box__info__meta">{{item.time}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" wx:if="{{item.author=='qswp'}}">金海公寓物业管理处</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" wx:else>掌家金管家</view>
+          </view>
+           <!-- </navigator>  -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--没有更多了-->
+<view class="nothing tc linght flex mt10 mb10" hidden="{{hasMore}}">
+  <text class="sub line mr10"></text>
+  <text>没有更多了</text>
+  <text class="sub line ml10"></text>
+</view>

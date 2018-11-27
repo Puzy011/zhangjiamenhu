@@ -1,0 +1,17 @@
+<view class="all">
+  <view class="carMessage" bindtap="navigateTo" data-url="/pages/my/message/jiaofei/jiaofei">
+      <image src="{{img}}xiaoxi.png" class="carimg"></image>
+      <text>系统缴费消息</text>
+      <text class="time">请点击查看详情</text>
+  </view>
+  <view class="carMessage" bindtap="navigateTo" data-url="/pages/my/message/repairs/repairs">
+      <image src="{{img}}xiaoxi.png" class="carimg"></image>
+      <text>障碍报修消息</text>
+      <text class="time">请点击查看详情</text>
+  </view>
+  <view class="carMessage" bindtap="navigateTo" data-url="/pages/my/message/xiangqing/xiangqing">
+      <image src="{{img}}kefu.png" class="carimg"></image>
+      <text>掌家服务</text>
+      <text class="time">请点击查看详情</text>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view wx:if="{{distance}}" class="container">
+    <view class="open">
+            <image src="/pages/image/index-1.png" class="open-btn"></image>  
+            <view class="classname">
+            <text class="open-text">便利店开门</text>   
+            </view>
+            </view>
+
+</view>
+<view wx:else class="container">
+  <!-- <view bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view> -->
+
+  <view class="usermotto">
+    <view class="tips">
+      <text class="user-motto">掌Go提示您:
+                        您还不在小店范围内哦!
+                        距离最近的掌Go\t2\t米哦!
+     </text>
+    </view>
+    <!-- <button formType="submit" style="width:60%" type="primary" bindtap="bindViewTap">扫一扫</button> -->
+    <!-- <image src="/pages/image/index-1.png" style="width:328rpx;height:328rpx;"></image> -->
+  </view>
+  <text class="back" bindtap="bindViewBack">3秒后自动返回开锁...</text>
+
+</view>
+

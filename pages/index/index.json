@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "掌家门户",
+    "backgroundTextStyle":"dark",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance":50
+}

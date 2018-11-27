@@ -1,0 +1,90 @@
+<view class="all">
+  
+<form>
+    <view class="two">
+        <image src="{{img}}sendoff.png" class="twoimg"></image>
+        <!--
+        <image src="{{img}}compile.png" class="bianji" bindtap="bianjiTo"></image>
+        -->
+        <input auto-focus class="weui-input" placeholder="寄到哪里？" type="text"  bindblur="siteTo"></input> 
+    </view> 
+    <view class="three">
+        <image src="{{img}}doggybox.png" class="thimg"></image>
+        <radio-group class="oneSelect" bindchange="radioChange">   
+        <view class="select">
+        <radio value="xiao"></radio>
+        <image src="{{img}}caddy.png"></image>
+        </view>     
+
+        <view class="select">
+        <radio value="zhong"></radio>
+        <image src="{{img}}box.png"></image>
+        </view> 
+
+        <view class="select">
+        <radio value="da"></radio>
+        <image src="{{img}}bigbox.png"></image>
+        </view>  
+       </radio-group>
+    </view>
+    
+    <view class="four">
+        <image src="{{img}}Thedoortoedit.png" class="fourimg"></image>   
+        <picker mode="time" value="{{time}}" start="18:00" end="24:00" bindchange="bindTimeChange">
+              <view class="weui-inputs">{{time}}</view>
+        </picker>
+    </view>
+    <view class="five">
+        <image src="{{img}}leaveamessage.png" class="fiveimg"></image>
+        <input auto-focus class="weui-inputss" placeholder="例:物品易碎,请填充泡沫" type="text" bindblur="messageTo"></input> 
+    </view>
+     <view  id="six" >
+     <radio-group class="radio-group" bindchange="radioChanges">
+        <view class="radio">
+            <radio value="BSHT"></radio>
+            <image src="{{img}}kuaidi1.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="shunfei"></radio>
+            <image src="{{img}}kuaidi2.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="yunda"></radio>
+            <image src="{{img}}kuaidi3.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="shengtong"></radio>
+            <image src="{{img}}kuaidi4.png"class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="yuantong"></radio>
+            <image src="{{img}}kuaidi5.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="quanyi"></radio>
+            <image src="{{img}}kuaidi6.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="zhongtong"></radio>
+            <image src="{{img}}kuaidi7.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="tiantian"></radio>
+            <image src="{{img}}kuaidi8.png" class="siximg"></image>
+        </view>
+        <view class="radio">
+            <radio value="yousu"></radio>
+            <image src="{{img}}kuaidi9.png" class="siximg"></image>
+        </view>
+    </radio-group>
+    </view>
+</form>
+    <view class="bottom">
+        <view class="left">
+            <text class="price">￥{{price}}</text>
+            <text class="time">掌家将收取您1元服务费</text>
+        </view>
+    
+            <button type="primary" class="pay" bindtap="judge">微信支付</button>  
+        </view>
+</view>

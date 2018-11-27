@@ -1,0 +1,90 @@
+<form bindsubmit="formSubmit">
+  <view id="common" style="background-image: url({{backImage}})">
+    <scroll-view class="scroll-l" scroll-y="false">
+      <block wx:for="{{shopItemData.data}}" wx:key="id" wx:for-item="menu">
+        <view class="goodt">
+          <view class="good">
+            <view class="goods {{selectedMenuId == menu.id ? 'selected' : ''}}" bindtap="selectNav" data-index="{{index}}" data-id="{{menu.id}}">{{menu.name}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <scroll-view class="scroll-r">
+      <view class="centers">
+        <block wx:for="{{shopItemData.data[curIndex].dishes}}" wx:key="id" wx:for-item="dishes">
+          <view class="store">
+            <view class="item-name">{{dishes.name}}</view>
+            <image class="list-img" src="{{dishes.pic}}"></image>
+            <view class="items">
+              <!-- <image src="{{img}}jiage.png"></image>-->
+              <view class="item-price">￥{{dishes.price}}</view>
+            </view>
+            <view class="dish-item-count" style="">
+              <view class="dish-item-tab">
+                <view class="dish-item-count-minus" data-id="{{dishes.id}}" data-cid="{{shopItemData.data[curIndex].id}}" bindtap="minusCount">
+                  <image class="image-icon" src="{{img}}mealBoxMinus.png" />
+                </view>
+              </view>
+
+              <view class="dish-item-count-text dish-item-tab">
+                <view class="item-title" hidden="{{dishes.count == 0}}">{{dishes.count}}</view>
+              </view>
+              <view class="dish-item-count-plus" data-id="{{dishes.id}}" data-cid="{{shopItemData.data[curIndex].id}}" bindtap="addCount">
+                <image class="image-icon" src="{{img}}mealBoxAdd.png" />
+              </view>
+            </view>
+
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <!--弹出  -->
+  <view class="shopCart shopcart-list" style="display:{{cartShow}}">
+    <view class="list-header">
+      <view class="title">购物车</view>
+      <text class="empty" bindtap="empty"></text>
+    </view>
+    <view class="list-content">
+      <view class="shopcart-food" wx:for="{{carArray}}">
+        <text class="name">{{item.name}}</text>
+        <view class="price" wx:if="{{item.num > 0}}">
+          <span>￥{{item.price*item.num}}</span>
+        </view>
+
+        <!--cartControl-->
+        <view class="cartControl-wrapper" style="bottom:20rpx;" wx:if="{{item.num > 0}}">
+          <view class="cartControl" style="width:160rpx;">
+            <!-- <view name="fade"> -->
+            
+            <!-- <view class=" iconfont icon-jia cart-add " style="z-index:9999;width:30rpx;font-size:48rpx;color:#00A0DC; padding:0;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="minusCount">-</view> -->
+            <view class="cart-count" style="z-index:9999;color:#131313;display:inline-block;width:105rpx;text-align:center;font-size:28rpx;">数量：{{item.num}}</view>
+            <!-- <view class=" iconfont icon-jia cart-add " style="z-index:9999;width:30rpx;font-size:48rpx;color:#00A0DC; padding:0;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="addCount">+</view> -->
+            <!-- </view> -->
+          </view>
+        </view>
+        <!--cartControl-->
+      </view>
+    </view>
+
+  </view>
+  <!--弹出end  -->
+  <view class="cart-tab-wrp">
+    <view class="cart-item-total cart-tab-item">
+      <view class="cart-item-icon-wrp" bindtap="toggleList">
+        <image class="cart-item-icon" src="{{img}}gouwuche.png" />
+        <text hidden="{{total.count}}" class="cart-item-total-num bc_red">{{total.count}}</text>
+      </view>
+      <text class="cart-item-total-price">￥{{total.money}}</text>
+      <text class="tishi">早餐于明早六点半前送达早餐箱
+      (请于前一天24点前预定,将收取您2元服务费)</text>
+    </view>
+     <view class=""> 
+
+      <button class="cart-tab-item-btn" hover-class="navigator-hover" formType="submit" size="40" bindtap="payment">去付款</button>
+
+     </view> 
+  </view>
+
+
+</form>

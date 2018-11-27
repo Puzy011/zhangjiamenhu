@@ -1,0 +1,38 @@
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">障碍报修列表</view>
+  <view class="weui-panel__bd" >
+    <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{fuwu}}" wx:for-item="name" wx:key="id">
+      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="https://www.zhangjiamenhu.com/{{name.pic}}" />
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="weui-media-box__desc">订单编号:{{name.order_number}}</view>
+        <view class="weui-media-box__desc">服务类型：</view>
+        <view class="weui-media-box__title">
+          <view wx:if="{{name.type==0}}">掌家早餐</view>
+          <view wx:elif="{{name.type==1}}">掌家快递</view>
+          <view wx:elif="{{name.type==2}}">当日达</view>
+          <view wx:elif="{{name.type==3}}">夜间洗车</view>
+          <view wx:else="{{name.type==9}}">障碍报修</view>
+        </view>
+        <view class="weui-media-box__desc">订单内容:{{name.describe}}</view>
+      </view>
+      <!-- <view class="weui-cell weui-cell_access weui-cell_link"> -->
+      <view wx:if="{{name.status==0}}" class='red'>未启动</view>
+      <view wx:elif="{{name.status==1}}" class='orange'>进行中</view>
+      <view wx:elif="{{name.status==2}}" class='orange'>收件中</view>
+      <view wx:elif="{{name.status==3}}" class='orange'>寄件中</view> 
+      <view wx:else="{{name.status==-1}}" class='green'>已完成</view>
+    <!--向右小图标  -->
+      <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+    <!-- </view> -->
+    </view>
+  </view>
+
+  <view class="weui-panel__ft">
+    <view class="weui-cell weui-cell_access weui-cell_link">
+      <view class="weui-cell__bd">没有更多了</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,121 @@
+<view class="page">
+          <view class="page__hd">
+            <view class="weui-cell">
+              <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <image src="/pages/image/24go.png" style="width: 50px; height: 50px; display: block" />
+                <!-- <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</view> -->
+              </view>
+              <view class="weui-cell__bd">
+                <view style="font-size: 13px;color: #888888;">交易68次</view>
+                <view style="font-size: 13px;color: #888888;">更新时间:2017-09-09</view>
+              </view>
+            </view>
+            <view class="page__title"></view>
+            <view class="page__desc"></view>
+          </view>
+          <view class="page__bd">
+            <view class="weui-form-preview">
+              <!-- <view class="weui-form-preview__hd"> 
+                <view class="weui-form-preview__label">交易时间:2017-09-09</view>
+                 <view class="weui-form-preview__value_in-hd">¥2400.00</view> 
+               </view>   -->
+              <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label" style="font-size: 14px;">交易时间:2017-09-09</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">维他柠檬茶</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥3.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">可口可乐</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">雪碧</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label"></view>
+                <view class="weui-form-preview__value item-price">
+                  合计:¥8.50
+                </view>
+                <view class="weui-form-preview__value item-price">
+                  信用积分:+1
+                </view>
+              </view>
+              </view>
+              
+              <!-- <view class="weui-form-preview__ft">
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">辅助操作</navigator>
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">操作</navigator>
+              </view> -->
+            </view>
+            <view class="weui-form-preview">
+              <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label" style="font-size: 14px;">交易时间:2017-09-09</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">维他柠檬茶</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥3.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">可口可乐</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">雪碧</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label"></view>
+                  <view class="weui-form-preview__value item-price">
+                    合计:¥8.50
+                  </view>
+                  <view class="weui-form-preview__value item-price">
+                    信用积分:+1
+                  </view>
+                </view>
+              </view>
+
+              <!-- <view class="weui-form-preview__ft">
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">辅助操作</navigator>
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">操作</navigator>
+              </view> -->
+            </view>
+            <view class="weui-form-preview">
+              <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label" style="font-size: 14px;">交易时间:2017-09-09</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">维他柠檬茶</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥3.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">可口可乐</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">雪碧</view>
+                  <view class="weui-form-preview__label count_label">×1</view>
+                  <view class="weui-form-preview__value">¥2.50</view>
+                </view>
+              </view>
+
+              <!-- <view class="weui-form-preview__ft">
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">辅助操作</navigator>
+                <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">操作</navigator>
+              </view> -->
+            </view>
+          </view>
+        </view>

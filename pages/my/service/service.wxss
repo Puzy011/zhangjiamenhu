@@ -1,0 +1,26 @@
+/* pages/my/service/service.wxss */
+
+.weixin {
+  display: block;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.phone {
+  display: block;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.kefubox {
+  margin-top: 12vh;
+}
+
+.call {
+  width: 70vw;
+  /*掌家 浅蓝蓝  */
+  background: #2890e0;
+  /*新年红  *//* background: #e64340; */
+  color: #fff;
+  text-align: center;
+}

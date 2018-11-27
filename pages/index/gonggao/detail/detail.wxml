@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="all" value="{{id[index]}}">
+    <text class="headline">{{title}}</text>
+    <text class="times">{{time}}</text>
+    <text class="real" wx:if="{{author=='qswp'}}">浅水湾畔</text> 
+    <!--<image src="https://www.zhangjiamenhu.com/{{pic}}"></image>-->
+    <!--<text class="wenzhang">{{content}}</text>-->
+    <!-- <template name="img">  
+      <view><image class="content-img" mode="aspectFit" src="http://zhangjiamenhu.com/{{content.data}}"></image></view>  
+      </template>
+    <template name="txt">  
+          <view>  
+              <text>{{content}}</text>  
+          </view>  
+      </template> -->
+    <view class="content">
+      <!-- <block wx:for="{{content}}" wx:for-item="content" wx:key="gonggaoid"> -->
+        <!-- <template is="{{content.type}}" data="{{content}}" />  -->
+        {{content}}
+      <!-- </block> -->
+    </view>
+  </view> 
+</view>

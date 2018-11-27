@@ -1,0 +1,39 @@
+page{
+  background: #fff;
+}
+.page{
+  background: #fff;
+}
+.headline{
+    font-size: 50rpx;
+   display: block;
+   text-align: center;
+   margin-top: 20rpx;
+}
+.times{
+    color: #b8b8b8;
+    margin-top: 30rpx;
+    margin-right: 30rpx;
+    font-size: 32rpx;
+    float: right;
+}
+.real{
+    float: left;
+    margin-left: 30rpx;
+    color: #576b95;
+}
+image{
+    margin-left: 7%;
+}
+.content{
+    font-size: 40rpx;
+    float: left;
+    padding: 90rpx;
+}
+.content-img{
+    padding-top: 3%;
+}
+.txt text{
+    line-height: 40px;
+}
+ 

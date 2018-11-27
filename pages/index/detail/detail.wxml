@@ -1,0 +1,100 @@
+<view class="top bgwhite">
+  <view class="flex f16" style="align-items:center;">
+    <view class="sub red" style="text-align: center;" wx:if="{{type == 2 }}">报修</view>
+    <view class="sub blue" style="text-align: center;" wx:if="{{type == 1 }}">邻里圈</view>
+    <view class="aside-more arrowB" catchtap="onToggleShowActionMenuTap"></view>
+  </view>
+
+  <!-- 更多操作 弹出层 -->
+  <view class="floatBox" hidden="{{!isShowActionMenu}}">
+    <view class="more-content bgwhite tc  f14">
+      <view class="item gridXb" wx:if="{{is_my}}" catchtap="onDeleteTap">删除</view>
+      <view class="item" catchtap="onToggleShowActionMenuTap">取消</view>
+    </view>
+    <view class="floatBox floatBoxBg" style="display:block;" catchtap="onToggleShowActionMenuTap"></view>
+  </view>
+
+  <view class="flex" style="align-items:center;">
+    <!--头像-->
+    <image class="user-img" src="{{mpic}}" mode="aspectFill"></image>
+    <view class="sub ml10 user-msg">
+      <!--用户信息-->
+      <view>
+        <text class="lineText">{{nickname}}</text>
+        <text class="grey f12 ml10">{{time}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 内容主体 -->
+<view class="content f18">
+  <view class='this_content'>{{content=='undefined'||content==null?'掌家门户为您服务':content}}</view>
+  <view wx:for="{{piclist}}" wx:for-item="item" wx:key="pic">
+    <image class="mt10" data-src="{{item}}" bindtap='PreviewTo' mode="widthFix" src="{{item}}" style="width:100%;"></image>
+  </view>
+</view>
+
+<!--评论内容-->
+<view class="bgwhite mt10">
+  <view class="co-title f16 gridXb">全部评论（{{number}}）</view>
+  <view class="comment f14">
+    <view class="co-item flex gridXb" wx:for="{{comments}}" wx:key="id">
+      <view class="co-userimg">
+        <image src="{{item.pic}}" mode="aspectFill"></image>
+      </view>
+      <view class="sub ml15">
+        <view class="flex mt10 grey" style="align-items:center;">
+          <view class="sub">{{item.nickname}}</view>
+        </view>
+        <view class="f16 mt5">{{item.content}}</view>
+        <view class="flex mt10 grey" style="align-items:center;">
+          <view class="sub">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="nothing tc linght flex mt10 mb10">
+  <text class="sub line mr10"></text>
+  <text>没有更多了</text>
+  <text class="sub line ml10"></text>
+</view>
+
+<view class="bottom-btn-box">
+  <view class="flex tc bgwhite gridXt">
+    <view class="sub flex f20">
+      <button class="sub share bottom-btn" open-type="share">
+        <view class="iconfont icon-share"></view>
+        <view class="f12 grey">分享</view>
+      </button>
+      <view class="bottom-btn zan-btn sub {{is_good?'green':''}}" bindtap="onGoodTap">
+        <view class="iconfont {{is_good?'icon-appreciatefill':'icon-appreciate'}} {{isActive?'zanactive':''}}"></view>
+        <view class="f12 {{is_good?'':'grey'}}">{{click}}</view>
+      </view>
+    </view>
+    <button class="contact" type="primary" catchtap="onShowCommentTap">评论Ta</button>
+  </view>
+</view>
+
+<!--评论输入框-->
+<view class="floatBox" wx:if="{{show_comment}}">
+  <view class="pinglun-input">
+    <view class="flex f16">
+      <text class="sub">评论</text>
+      <text class="close tc grey" catchtap="onHideCommentTap">×</text>
+    </view>
+    <form report-submit="true" bindsubmit="onCommentSubmit">
+      <view class="input-box mt10">
+        <textarea name="content" focus="true" fixed="true" cursor-spacing="115" placeholder="{{review}}" placeholder-class="linght" />
+      </view>
+      <view class="flex mt10">
+        <view class="sub linght f12">
+          <text class="mr5 iconfont icon-wran"></text>请遵循用户协议</view>
+        <button class="send-btn f16" type="primary" form-type="submit">发送</button>
+      </view>
+    </form>
+  </view>
+  <view class="floatBox floatBoxBg" style="display:block;" catchtap="onHideCommentTap"></view>
+</view>

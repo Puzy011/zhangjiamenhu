@@ -1,0 +1,185 @@
+
+.all{
+    background-color:#f2f2f2;
+}
+.one{
+    background-color: white;
+}
+.furnishing{
+width: 50%;
+height: 73rpx;
+background: url(http://img.zhangjiamenhu.com/dangrida-off.png) no-repeat;
+background-size: 100%;
+margin: 0;
+}
+.unlocking{
+    width: 50%;
+    height: 73rpx;
+    background: url(http://img.zhangjiamenhu.com/yejiankuaidi-on.png) no-repeat;
+    background-size: 100%;
+    margin:-71rpx 0 0 50%;  
+}
+button{
+    height: 100%;
+}
+.two{
+    background-color: white;
+    padding-top: 9%;
+}
+.twoimg{
+    height: 1.5em;
+    width: 1.5em;
+    margin: -1.4em 0 0 2em;
+    position: absolute;
+}
+.bianji{
+    position:relative;
+    height:3em;
+    width: 5em;
+    margin: -2.6em 0 0 3em;
+    float: right;
+}
+.weui-input{
+    height: 3em;
+    width: 50%;
+    margin: -10% 0 0 25%;
+    position: relative;
+}
+.three{
+    height: 80px;
+    margin-top: 3%;
+    background-color: white;
+}
+.thimg{
+    width: 25%;
+    height: 100%;
+}
+.thimgs{
+    width: 30%;
+}
+image{
+     height: 60px;
+    width: 60px;
+}
+.four{
+    margin-top: 3%;
+    background-color: white;
+}
+.fourimg{
+   height: 1em;
+   width: 7em; 
+   margin-top: 3%;
+   margin-left: 3%;
+}
+.picker{
+  padding: 19rpx 26rpx;
+  background-color: #FFFFFF;
+}
+.weui-inputs{
+height:2em;
+margin:-6% 0 0 70%;
+position:relative;
+color: #999;
+}
+.five{
+    margin-top: 3%;
+    background-color: white;
+}
+.fiveimg{
+  height: 1em;
+   width: 7em; 
+   margin-top: 10%;
+   margin-left: 3%;
+   margin-bottom: 4%;
+}
+.weui-inputss{
+height:2em;
+padding-right: 5%;
+margin:-12.5% 0 0 40%;
+position:relative;
+color: #999;
+}
+#six{
+    margin-top: 7%;
+    background-color: white;
+}
+.siximg{
+    height:63px;
+    width: 125px;
+    float: left;
+    margin-left: -8%;
+}
+.bottom{
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120rpx;
+    display: flex;
+    border-top: 1rpx solid #eee;
+    background-color: #FFFFFF;
+}
+.bottom .price{
+    margin-left: 38rpx;
+    color: red;
+    display: block;
+    margin-top: 20rpx;
+}
+
+.bottom .time{
+    font-size: 0.7em;
+    color: #999;
+    left: 5%;
+    position: absolute;
+    bottom: 20rpx;
+
+}
+.pay{
+    line-height: 120rpx;
+    margin-right: 0;
+}
+.radio-group .radio radio{
+   float: left;
+   height: 3px;
+   width: 3px;
+}
+.radio{
+    width: 30%;
+    float: left;
+    margin: auto 1%;
+}
+.radio-group .radio .siximg{
+   /* margin-left: -10%;*/
+}
+.item-price{
+    width: 0%;
+    float: left;
+}
+.radio-groups  {
+    margin-top: -20%;
+    margin-left: 27%;
+}
+.radio-groups .radios radio{
+    float: left;
+}
+.radios .thimgs{
+    margin-left: -8%;
+    float: left;
+}
+.oneSelect {
+    margin-top: -20%;
+    margin-left: 27%;
+}
+.oneSelect radio{
+    float: left;
+    height: 3px;
+    width: 3px;
+}
+.radios image{
+    margin-left: -8%;
+    float: left;
+}
+.select{
+    width: 33%;
+    float: left;
+    margin-top: 4%;
+}

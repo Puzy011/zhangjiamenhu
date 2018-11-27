@@ -1,0 +1,25 @@
+
+<view class="weui-panel weui-panel_access">
+  <view class="weui-panel__hd">掌家服务预约详情列表</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text" wx:for="{{fuwu}}" wx:for-item="name" wx:key="id">
+      <view class="weui-media-box__desc">订单编号:{{name.order_number}}</view>
+      <view class="weui-media-box__desc">服务类型：</view>
+      <view class="weui-media-box__title weui-media-box__title_in-text">{{name.title}}</view>
+      <view wx:if="{{name.status==0}}" class='weui-cell__bd red'>未启动</view>
+      <view wx:elif="{{name.status==1}}" class='weui-cell__bd orange'>进行中</view>
+      <view wx:elif="{{name.status==2}}"  class='weui-cell__bd orange'>收件中</view>
+      <view wx:elif="{{name.status==3}}"  class='weui-cell__bd orange'>寄件中</view>
+      <view wx:else="{{name.status==-1}}"  class='weui-cell__bd green'>已完成</view>
+      <!--向右小图标  -->
+      <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+    </view>
+    
+  </view>
+   <view class="weui-panel__ft">
+    <view class="weui-cell weui-cell_access weui-cell_link">
+      <view class="weui-cell__bd">没有更多了</view>
+      <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
+    </view>
+  </view> 
+</view>

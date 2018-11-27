@@ -1,0 +1,102 @@
+<form bindsubmit="onPushSubmit" report-submit="true" hidden="{{isShowStatementTap}}">
+    <!-- 分类 -->
+    <!-- <view class="massage mb10">
+        <view class="list arrowR">发布{{options.title}}</view>
+    </view> -->
+    <view class="massage grey mt10">
+        
+        <!-- 标题-->
+        <view class="flex list">
+            <!-- <text class="mr5 iconfont icon-dianhua"></text> -->
+            <input type="text" class="sub" name="title" placeholder="请输入标题" value="{{title}}" />
+        </view>
+    </view>
+    <view class="massage" style="padding:30rpx;">
+        <textarea placeholder="请输入要发布的内容" placeholder-class="linght" name="content" maxlength="6144" />
+        <!--图片-->
+        <!-- <view class="img mt10">
+            <image class="mr5 mb5" src="{{item}}" mode="aspectFill" wx:for="{{pictures}}" wx:key="*this" data-index="{{index}}" catchlongtap="onDeleteImgTap" catchtap="onPreviewTap"></image>
+            <text class="add-img tc grey iconfont icon-add" catchtap="onOpenPictureTap" wx:if="{{pictures.length<6}}"></text>
+        </view> -->
+    </view>
+    <!-- <view class="ml10 mr10 mt5 f12 linght">温馨小提示：长按可以删除图片哦~</view> -->
+    <view class="ml15 mt5">
+        <text wx:for="{{cate.tags}}" wx:key="{{index}}" class="content-tag {{item.active?'active':''}}" catchtap="onChooseTag" data-index='{{index}}'>{{item.value}}</text>
+    </view>
+    <!-- <view class="massage grey mt10"> -->
+        <!-- 地址 -->
+        <!-- <view class="flex list gridXb" catchtap="onOpenMapTap">
+            <input type="text" name="address" hidden="true" value="{{address}}" />
+            <input type="text" name="latitude" hidden="true" value="{{latitude}}" />
+            <input type="text" name="longitude" hidden="true" value="{{longitude}}" />
+            <text class="mr5 iconfont icon-locationfill"></text>
+            <text class="sub arrowR">{{address?address:'地址'}}</text>
+        </view> -->
+        <!--电话-->
+        <!-- <view class="flex list">
+            <text class="mr5 iconfont icon-dianhua"></text>
+            <input type="number" class="sub" name="mobile" placeholder="请输入您的电话号码" value="{{mobile}}" />
+        </view>
+    </view> -->
+    <view class="massage mt10" hidden="{{!config || config.show_top==0}}">
+        <view class="list flex">
+            <text class="sub">我要置顶</text>
+            <switch type="switch" bindchange="onIsTopChange" />
+            <input hidden="true" name="is_top" value="{{is_top}}" />
+        </view>
+        <view class="list flex gridXt" hidden="{{!is_top}}">
+            <text class="sub">选择置顶时间</text>
+            <picker class="grey arrowR" bindchange="onTopDayChange" mode="selector" range="{{config.top_rule}}" range-key="day">
+                {{top_day}} 天
+            </picker>
+            <input hidden="true" name="top_day" value="{{top_day}}" />
+        </view>
+        <view class="list flex gridXt" hidden="{{!is_top}}">
+            <text class="sub">价格</text>
+            <text class="red">￥{{top_amount}}</text>
+        </view>
+    </view>
+
+    <!-- <view class="massage mt10">
+        <view class="list flex">
+            <text class="sub">发福利（提高阅读量和转发量）</text>
+            <switch type="switch" />
+        </view>
+        <view class="list flex gridXt">
+            <text>福利金额</text>
+            <input class="sub ml10 red" placeholder="1-200元，达到100元将免费置顶一天" placeholder-class="grey" />
+        </view>
+        <view class="list flex gridXt">
+            <text>分成几份</text>
+            <input class="sub ml10" placeholder="最少一份" placeholder-class="grey" />
+        </view>
+        <view class="list flex gridXt">
+            <text class="sub">平均分配福利</text>
+            <switch type="switch" />
+        </view>
+        <view class="list flex gridXt">
+            <text class="sub">福利口令</text>
+            <switch type="switch" />
+        </view>
+        <view class="list flex gridXt">
+            <input class="sub" placeholder="请输入福利口令" placeholder-class="grey" />
+        </view>
+    </view> -->
+
+    <view class="m20">
+        <view class="mb10 grey tr" wx:if="{{cate.amount>0}}">此分类发帖
+            <text class="red">{{cate.amount}}元</text>/条</view>
+        <view class="linght mb10" wx:if="{{config.statement}}">发布信息前请先查看
+            <text class="blue" catchtap="onShowStatementTap">免责声明</text>
+        </view>
+        <button type="primary" form-type="submit" disabled="{{disableBtnPush}}">立即发布</button>
+    </view>
+
+</form>
+
+<view class="shengming flex flexC" hidden="{{!isShowStatementTap}}">
+    <view class="content sub">
+        <rich-text nodes="{{config.statement}}" />
+    </view>
+    <button class="f16 mt20" type="primary" catchtap="onShowStatementTap">我已阅读</button>
+</view>

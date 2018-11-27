@@ -1,0 +1,14 @@
+<!--pages/my-com/my-com.wxml-->
+<view class='page'>
+  <view class='bg'>
+    <image src='http://img.zhangjiamenhu.com/original2.png' class='bg_img' mode="widthFix"></image>
+</view> 
+  <view class='txt'>
+  <text >您的身份是...</text>
+  </view>
+  <view class='img'>
+    <image src='{{img}}ing1.png' mode='widthFix' data-index='0' bindtap='optionTo' mode='widthFix'></image>
+    <image src='{{img}}ing2.png' mode='widthFix' data-index='2' bindtap='optionTo' mode='widthFix'></image>
+    <image src='{{img}}ing4.png' mode='widthFix' data-index='1' bindtap='optionTo' mode='widthFix'></image>
+  </view>
+</view>

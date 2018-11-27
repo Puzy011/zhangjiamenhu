@@ -1,0 +1,19 @@
+<view class="all">
+    <view class="common">
+        <image class="zhaopian" src="{{img}}women.jpg"></image>
+    </view>
+    <view class="common">
+        <view class="biaoyu">您的专属<text>管家</text></view>
+    </view>
+    <view class="common">
+        <text class="zhangjia">掌家</text>
+    </view>
+    
+     <view class="common">
+        <text class="versions">当前版本号1.3.1</text>
+    </view>
+
+     <view class="common">
+        <text class="wangzhi">www.zhangjiamenhu.com</text>
+    </view>
+</view>

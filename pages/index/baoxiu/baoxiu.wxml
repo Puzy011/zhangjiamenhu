@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="page-body">
+    <form bindsubmit="Repair" report-submit='true'>
+      <view class="page-section">
+        <view class="weui-cells">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title">障碍报修</view>
+                </view>
+                <view class="textarea-wrp">
+                  <textarea style="height: 10em" placeholder="{{baoxiuxinxi}}" name='content'></textarea>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files">
+                    <block wx:for="{{imageList}}" wx:for-item="image" wx:for-index="idx" wx:key="baoxiu">
+                      <view class="weui-uploader__file">
+                        <image class="weui-uploader__img" src="{{image}}" data-index="{{idx}}" data-src="{{image}}" bindtap="previewImage" bindlongpress='removeimg'></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='red f12'>(*公共维修无需收费，入户维修所产生费用由业主自行承担)</view>
+      <view class='weui-btn-area'>
+        <button class='re_btn' form-type="submit" >发布报修</button>
+      </view>
+    </form>
+  </view>
+
+</view>

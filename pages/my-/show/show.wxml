@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="top_header">
+    <view class='bg'>
+      <image src='{{img}}3jiao.png' class='bg_img' mode="widthFix"></image>
+      <!-- <image src='{{img}}d1.png' class='pointer' mode="widthFix"></image> -->
+      <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image> -->
+      <!-- <text class="userinfo-nickname1">sdadfsdgv</text>
+      <text class="userinfo-nickname2">信用积分:85</text> -->
+
+    </view>
+
+    <view class='content'>
+      <view class='credit'>
+        <view class=''>{{num1Complete}}</view>
+        <view class='nums'>{{num1}}</view>
+        <view class='timer'>{{num1Complete_}}</view>
+      </view>
+      <button wx:if='{{btn_show}}' class='credit_btn' bindtap='creditTo'>信用评估标准 </button>
+
+    </view>
+  </view>
+  <view class='buttom_'>
+    <image src='{{img}}c3.png' class='img1' mode="widthFix" bindtap='addTo'></image>
+    <image src='{{img}}c4.png' class='img2' mode="widthFix" bindtap='creditTo'></image>
+    
+  </view>
+  <view class='buttom_txt'> 
+    <text class='txt1' bindtap='addTo'>我要补分</text>
+    <text class='txt2' bindtap='creditTo'>信用记录</text>
+    </view>
+
+</view>

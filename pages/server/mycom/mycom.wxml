@@ -1,0 +1,58 @@
+<!--pages/my-com/my-com.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd red">请选择早餐店铺（请前一天23:30之前预订，次日七点前送达）</view>
+      <view class="weui-panel__bd" wx:for="{{list}}" wx:for-item="item" wx:key="id">
+        <navigator url='../goods/goods?id={{item.id}}'   class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" data-index='{{item.id}}' >
+            <image class="weui-media-box__thumb" src="{{item.image}}" mode="widthFix" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" data-index='{{item.id}}' >
+            <view class="weui-media-box__title">{{item.name}}</view>
+             <view class="weui-media-box__desc ">{{item.phone}}</view> 
+          </view>
+          <view class='callto' data-index='{{item.id}}' >点击购买</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view class="weui-media-box weui-media-box__info">
+          <view class="weui-media-box__info__meta">浅水湾畔</view>
+          <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">掌家专送</view>
+        </view>
+      </view>
+      <view class="weui-panel__ft" style='border-top:2rpx solid #eee'>
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <!--<view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>-->
+        </view>
+      </view>
+    </view>
+    <!-- <view class="weui-panel">
+       <view class="weui-panel__hd">文字列表附来源</view> 
+      <view class="weui-panel__bd">
+        <view wx:for="{{content}}" bindtap="detailTo" data-index="{{item.id}}" wx:key="*item" class="weui-media-box weui-media-box_text">
+           <navigator url="../details/details?id={{item.id}}">  
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="http://img.zhangjiamenhu.com/z-33.png" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+            <view class="weui-media-box__desc">{{item.content}}</view>
+          </view>
+
+          <view>拨打</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta" wx:if="{{item.author=='qswp'}}">浅水湾畔</view>
+            <view class="weui-media-box__info__meta" wx:else>{{item.author==='zj001'||item.author==='zj-xm-qswp'||item.author==='admin'?'掌家门户':item.author}}</view>
+            <view class="weui-media-box__info__meta">{{item.time}}</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" wx:if="{{item.author=='qswp'}}">金海公寓物业管理处</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" wx:else>掌家金管家</view>
+          </view>
+           </navigator>  
+        </view>
+      </view>
+    </view>  -->
+  </view>
+</view>

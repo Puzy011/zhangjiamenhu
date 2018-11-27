@@ -1,0 +1,110 @@
+<view class='page'> 
+  <view class='bg'>
+    <image src='{{img}}original2.png' class='bg_img' mode="widthFix"></image>
+  </view> 
+
+  <view class="all" wx:if="{{display==2}}">
+    <view class="saoma" bindtap="saomakaisuo" wx:if="{{ewm}}">
+      <text>{{ObtainQR_code}}</text>
+    </view>
+    <view wx:else>
+      <view class='eriweima'>
+        <image src="https://{{erweima}}" class="kaisuoma"></image>
+        <text>{{second}}s后失效</text>
+      </view>
+    </view>
+
+    <!-- 一键开锁 -->
+    <view wx:if="{{hideclock}}" class='{{color}}'>
+      <text class='{{color}} openbtn' catchtap='othergate'>侧门</text>
+      <image class="topimag" src="{{kaisuobtn1}}" mode='widthFix' bindtap='kaisuo'></image>
+      <text class='{{color}}'>{{state}}</text>
+      <view animation="{{animationData}}" class='{{animate}}'></view>
+    </view>
+
+    <view wx:if='{{othergate}}' class='gatescreen' catchtap='othergate'>
+      <view class='weui-cells__title' style='color:red'>敬请期待（暂未开通）</view>
+      <view class='weui-flex'>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>侧门</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>正门</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>后门</view>
+      </view>
+      <view class='weui-flex'>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>车库门A</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>车库门B</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>车库门C</view>
+      </view>
+      <view class='weui-flex'>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>南门1</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>东门</view>
+        <view class='weui-flex__item'><image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>南门2</view>
+      </view>
+    </view>
+
+    <!--遮罩层
+    <view class="b1" hidden="{{flag}}">
+      <view class="t_w">
+        <view class="t_image">
+          <image class="t_image1" src="http://img.zhangjiamenhu.com/z-33.png"></image>
+        </view>
+        <view class="b2">
+
+          <view class="v1">
+            <view class='grid-icon doors'>
+              <image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix' bindtap='kaisuo'></image>
+              <text class='{{color}}'>侧门</text>
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>
+            <text>车库门B</text> 
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn1}}" mode='widthFix'></image>
+            <text>车库门C</text>
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn2}}" mode='widthFix'></image>
+            <text>南门1</text> 
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn2}}" mode='widthFix'></image>
+            <text>南门2</text> 
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn2}}" mode='widthFix'></image>
+            <text>南门3</text> 
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn3}}" mode='widthFix'></image>
+            <text>东门1</text>
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn3}}" mode='widthFix'></image>
+            <text>东门2</text>
+            </view>
+            <view class='grid-icon'>
+            <image class="icon-img" src="{{kaisuobtn3}}" mode='widthFix'></image>
+            <text>东门3</text>
+            </view>
+            {{state}}
+            如果您周边100米内没有一键开门服务，一键开门将无法为您提供
+          </view>
+          <view class="btn1" bindtap="b">
+            <p class="p1">取消</p>
+            <p class="p2">哦</p>
+          </view>
+          <view class="btn2" bindtap="b">
+            <p class="p1">网上预约快递公司</p>
+            <p class="p2">快递公司可能无法及时响应，请耐心等待哦</p>
+          </view>
+        </view>
+      </view>
+    </view>-->
+  </view>
+
+  <view wx:else class="tipview">
+    <view>请进行业主验证</view>
+    <view>并联系物业认证</view>
+    <button class="kaisuoshuaxin" catchtap="pressrefresh">验证后请点此刷新</button>
+  </view>
+</view>

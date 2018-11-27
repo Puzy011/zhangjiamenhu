@@ -1,0 +1,239 @@
+<!--pages/order/order.wxml-->
+<!--head -->
+<view class="header">
+  <view class="content-wrapper">
+    <view class="avatar" wx:if="{{sid==1}}">
+      <image src='{{img}}du-LOGO.jpg' mode='widthFix'></image>
+    </view>
+    <view class="avatar" wx:if="{{sid==2}}">
+      <image src='{{img}}wu-logo.jpg' mode='widthFix'></image>
+    </view>
+    <view class="avatar" wx:if="{{sid==3}}">
+      <image src='{{img}}1yuan.png' mode='widthFix'></image>
+    </view>
+    <view class="avatar" wx:if="{{sid==4}}">
+      <image src='{{img}}chenjian.jpg' mode='widthFix'></image>
+    </view>
+    <view class="content">
+      <view class="title" wx:if="{{sid==1}}">
+        <image src="../../image/brand@2x.png"></image>
+        <span class="name">【肚子里有料】</span>
+      </view>
+      <view class="title" wx:if="{{sid==2}}">
+        <image src="../../image/brand@2x.png"></image>
+        <span class="name">【五润中式早餐连锁】</span>
+      </view>
+      <view class="title" wx:if="{{sid==3}}">
+        <image src="../../image/brand@2x.png"></image>
+        <span class="name">【掌家1元早餐】</span>
+      </view>
+      <view class="title" wx:if="{{sid==4}}">
+        <image src="../../image/brand@2x.png"></image>
+        <span class="name">【晨间厨房】</span>
+      </view>
+      <view class="description">
+        掌家专送/每日七点前送达（浅水湾畔）
+      </view>
+      <view class="support" wx:if="{{sid==3}}">
+        <span class="icon" :class="classMap[seller.supports[0].type]">
+          <image src="../../image/decrease_1@2x.png"></image>
+        </span>
+        <span class="text">掌家1元早餐 【限时火热抢购】</span>
+      </view>
+      <view class="support" wx:else>
+        <span class="icon" :class="classMap[seller.supports[0].type]">
+          <image src="../../image/decrease_1@2x.png"></image>
+        </span>
+        <span class="text">早餐活动 【首单满12减5/满22减10】</span>
+      </view>
+      <view class='wurun_notice' wx:if='{{sid==2}}'>
+        <text>温馨提示：五润近期部分商品涨价</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bulletin-wrapper">
+    <span class="bulletin-text">"掌家早餐专注营养健康早餐，立志成为您的贴心小【胃】"</span>
+  </view>
+
+  <view class="background" wx:if="{{sid==1}}">
+    <image src="{{img}}du-LOGO.jpg"></image>
+  </view>
+  <view class="background" wx:if="{{sid==2}}">
+    <image src="{{img}}wu-logo.jpg"></image>
+  </view>
+  <view class="background" wx:if="{{sid==3}}">
+    <image src="{{img}}1yuan.png"></image>
+  </view>
+  <view class="background" wx:if="{{sid==4}}">
+    <image src="{{img}}chenjian.jpg"></image>
+  </view>
+</view>
+<!--head -->
+
+<!--tab -->
+<view class="tab border-1px">
+  <view class="tab-item">
+    <a class="{{status==1 ? 'active':''}}" bindtap="tabChange" data-type="1">商家介绍</a>
+  </view>
+   <!-- <view class="tab-item">
+    <a class="{{status==1 ? 'active':''}}" bindtap="tabChange" data-type="1">评论</a>
+  </view>  -->
+  <view class="tab-item">
+    <a class="{{status==0 ? 'active':''}}" bindtap="tabChange" data-type="0">商品</a>
+  </view>
+</view>
+<!--tab -->
+
+<view class="goods" wx:if="{{status==0}}">
+  <view class="menu-wrapper">
+    <scroll-view scroll-y="true">
+      <view wx:for="{{goods}}" wx:key="type" class="menu-item border-1px" bindtap="selectMenu" data-item-index="{{index}}">
+        <view class="text">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <scroll-view scroll-y="true" scroll-into-view="{{toView}}" class="foods-wrapper">
+    <view wx:for="{{goods}}" class="food-list food-list-hook" wx:for-index="parentIndex" wx:key="type">
+      <view id="order{{parentIndex}}" class="title">{{item.name}}</view>
+      <view wx:for="{{item.foods}}" class="food-item" wx:for-item="food" wx:key="id" data-food="{{food}}">
+        <view class="icon" data-food="{{food}}" bindtap='seesee' >
+          <image wx:if="{{food.icon}}" src="https://www.zhangjiamenhu.com/{{food.icon}}" style="width: 200rpx;"  mode='widthFix' lazy-load='true'></image>
+        </view>
+        <view class="content">
+          <view class="name">{{food.name}}</view>
+          <view class="desc">{{food.description}}</view>
+          <view class="extra">
+            <text class="count">库存{{food.sellcount}}</text>
+            <text class="count">好评{{food.rating}}</text>
+          </view>
+          <view class="price">
+            <view class="now">￥{{food.price}}</view>
+            <view class="old" wx:if="{{food.oldprice>food.price}}">￥{{food.oldprice}}</view>
+          </view>
+
+          <view class="cartControl-wrapper">
+            <view class="cartControl">
+              <view name="fade">
+                <view class="cart-decrease" wx:if="{{food.Count > 0}}" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" bindtap="decreaseCart">
+                  <view class="inner " style="font-size:24px;color:#00A0DC;">
+                    <image style='width:48rpx' src='{{img}}icon-jian.png' mode='widthFix'></image>
+                  </view>
+                </view>
+                <view class="cart-count" wx:if="{{food.Count > 0 }}">{{food.Count}}</view>
+                <view class="cart-add " style="color:#00A0DC; " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" catchtap="addCart">
+                  <image style='width:48rpx' src='{{img}}icon-jia.png' mode='widthFix'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <modal class="mod" hidden="{{hidden}}" title="{{foodlist.name}}" data-item-index="{{index}}" data-id='{{foodlist.id}}' confirm-text="确定" no-cancel="{{true}}" bindconfirm="confirm">
+    <!-- <view> -->
+    <view class='food_info bk'>{{foodlist.info}}</view>
+    <image wx:if="{{foodlist.image}}" style='width:560rpx' src='https://www.zhangjiamenhu.com/{{foodlist.image}}' mode='widthFix'></image>
+    <view>{{foodlist.description}} {{foodlist.name}} </view>
+    <view style='display:flex'>
+      <view style='color:red'>￥{{foodlist.price}}</view>
+      <!-- <view style='margin-left:350rpx;margin-top:10rpx;color:#fff;font-size:26rpx;line-height: 26rpx;border-radius: 10rpx;background:#3f93e7' data-id='{{foodlist.id}}'>加入购物车</view> -->
+    </view>
+    <!-- </view> -->
+  </modal>
+
+  <!--shopCart-->
+  <view>
+    <view>
+      <view class="shopCart">
+        <view class="content" bindtap="toggleList">
+          <view class="content-left">
+            <view class="logo-wrapper">
+              <view class="logo highlight">
+                <view class=" highlight">
+                <image style='width:56rpx;margin-top:24rpx;' src='{{img}}cart-fff.png' mode='widthFix'></image>
+                </view>
+              </view>
+              <view class="num" wx:if="{{totalCount> 0}}">{{totalCount}}</view>
+            </view>
+            <view class="price highlight">￥{{totalPrice}}</view>
+            <view class="desc" wx:if='{{sid==3}}'></view>
+            <view class="desc" wx:else>需服务费￥{{deliveryPrice}}元</view>
+          </view>
+          <view class="content-right" catchtap="pay">
+            <view class="pay  {{greybtn}}">
+              {{payDesc}}
+            </view>
+          </view>
+        </view>
+        <view class="shopcart-list" style="display:{{cartShow}}">
+          <view class="list-header">
+            <view class="title">购物车</view>
+            <!--<text class="empty" bindtap="empty"></text>-->
+          </view>
+          <scroll-view class="list-content" scroll-y='true'>
+            <view class="shopcart-food" wx:for="{{carArray}}" wx:key="mark">
+              <text class="name" wx:if="{{item.num > 0}}">{{item.name}}</text>
+              <view class="price" wx:if="{{item.num > 0}}">
+                <span>￥{{item.price*item.num}}</span>
+              </view>
+
+              <!--cartControl-->
+              <view class="cartControl-wrapper" style="bottom:10px;" wx:if="{{item.num > 0}}">
+                <view class="cartControl" style="width:200rpx;">
+                  <view name="fade">
+                    <view class="cart-decrease" style="display:inline-block;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="decreaseShopCart">
+                      <view class="inner " style="font-size:24px;color:#00A0DC;">
+                        <image style='width:48rpx' src='{{img}}icon-jian.png' mode='widthFix'></image>
+                      </view>
+                    </view>
+                    <view class="cart-count" style="display:inline-block;width:32px;text-align:center;font-size:14px;position:relative;bottom:10rpx;">{{item.num}}</view>
+                    <view class="  cart-add " style="font-size:24px;color:#00A0DC; padding:0;" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" catchtap="addShopCart">
+                      <image style='width:48rpx' src='{{img}}icon-jia.png' mode='widthFix'></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="jiesaoimg" wx:if="{{status==1}}">
+  <view wx:if="{{sid==1}}">
+    <image src='http://img.zhangjiamenhu.com/fuwu_r1_c1.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/fuwu_r1_c3.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/fuwu_r1_c5.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/fuwu_r3_c1.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/fuwu_r3_c3.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/fuwu_r3_c5.jpg' mode='widthFix'></image>
+    <!--<view style='text-align: center;'> 肚子里有料</view>-->
+  </view>
+  <view wx:if="{{sid==2}}">
+    <image src='http://img.zhangjiamenhu.com/wurun1.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/wurun2.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/wurun3.jpg' mode='widthFix'></image>
+    <image src='http://img.zhangjiamenhu.com/wurun1.png' mode='widthFix'></image>
+    <!--<view style='text-align: center;'> 五润中式早餐连锁</view>-->
+  </view>
+  <view wx:if="{{sid==3}}">
+    <image src='{{img}}1yuan.png' mode='widthFix'></image>
+    <!--<view style='text-align: center;'> 掌家1元早餐</view>-->
+  </view>
+  <view wx:if="{{sid==4}}">
+    <!--<video style='width:100%' mode='widthFix' src='../../image/cat.mp4' controls='true' show-progress='true' page-gesture='true' 
+  show-center-play-btn='true' enable-progress-gesture='true'></video>-->
+    <image src='{{img}}chen1.jpg' mode='widthFix'></image>
+    <image src='{{img}}chen2.jpg' mode='widthFix'></image>
+    <image src='{{img}}chen3.jpg' mode='widthFix'></image>
+    <image src='{{img}}chen4.jpg' mode='widthFix'></image>
+    <!--<view style='text-align: center;'> 晨间厨房</view>-->
+  </view>
+</view>

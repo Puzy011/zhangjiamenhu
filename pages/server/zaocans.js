@@ -1,0 +1,193 @@
+
+const app = getApp()
+var img = app.globalData.img
+
+  data:{
+    img:img
+    }
+  
+var listItem = [
+    {
+        "id":1,
+        "name":"主食",
+        "dishes":[
+            {
+                "id":1,
+                "pic":img+"1.jpg",
+                "name":"香港流沙包",
+                "count":0,
+                "price":3.50,  //3.50
+                "count":0
+            },{
+                "id":2,
+                "pic":img+"2.jpg",
+                "name":"奥尔良腿排包",
+                "count":0,
+                "price":4.00,
+                "count":0
+            }
+            ,{
+                "id":3,
+                "pic":img+"4.jpg",
+                "name":"烧肉蘑菇包",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":4,
+                "pic":img+"5.jpg",
+                "name":"酱肉大包",
+                "count":0,
+                "price":3.00,
+                "count":0
+            }
+            ,{
+                "id":5,
+                "pic":img+"6.jpg",
+                "name":"核桃包",
+                "count":0,
+                "price":5.00,
+                "count":0
+            }
+            ,{
+                "id":6,
+                "pic":img+"7.jpg",
+                "name":"金麦包",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":7,
+                "pic":img+"9.jpg",
+                "name":"杂粮紫薯包",
+                "count":0,
+                "price":3.00,
+                "count":0
+            }
+            ,{
+                "id":8,
+                "pic":img+"10.jpg",
+                "name":"四方叉烧包",
+                "count":0,
+                "price":4.00,
+                "count":0
+            }
+            ,{
+                "id":9,
+                "pic":img+"11.jpg",
+                "name":"特汁鲜肉包",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":10,
+                "pic":img+"13.jpg",
+                "name":"冰皮麻糬",
+                "count":0,
+                "price":4.50,
+                "count":0
+            }
+            ,{
+                "id":11,
+                "pic":img+"14.jpg",
+                "name":"金丝肉松包",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":12,
+                "pic":img+"15.jpg",
+                "name":"鸡蛋玉米包",
+                "count":0,
+                "price":3.00,
+                "count":0
+            }
+            ,{
+                "id":13,
+                "pic":img+"16.jpg",
+                "name":"玫瑰豆沙包",
+                "count":0,
+                "price":3.00,
+                "count":0
+            }
+             ,{
+                "id":14,
+                "pic":img+"19.jpg",
+                "name":"桂圆燕麦馒头",
+                "count":0,
+                "price":2.50,
+                "count":0
+            }
+            ,{
+                "id":15,
+                "pic":img+"24.jpg",
+                "name":"茶叶蛋",
+                "count":0,
+                "price":2.50,
+                "count":0
+            }
+            
+        
+        ]
+    },
+       { "id":2,
+        "name":"流食",
+        "dishes":[
+            {
+                "id":16,
+                "pic":img+"17.jpg",
+                "name":"银耳红枣羹",
+                "count":0,
+                "price":3.50,
+                "count":0
+            },{
+                "id":17,
+                "pic":img+"18.jpg",
+                "name":"绿豆汤",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":18,
+                "pic":img+"21.jpg",
+                "name":"小米粥",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }
+            ,{
+                "id":19,
+                "pic":img+"22.jpg",
+                "name":"八宝粥",
+                "count":0,
+                "price":3.50,
+                "count":0
+            }         
+            
+        ]
+     }   ,
+     {
+        "id":3,
+        "name":"饮料",
+        "dishes":[
+            {
+                "id":20,
+                "pic":img+"3.jpg",
+                "name":"原味豆浆",
+                "count":0,
+                "price":3.00,
+                "count":0
+            }         
+            
+        ]
+    }   
+]
+module.exports = {
+    data : listItem
+    
+}

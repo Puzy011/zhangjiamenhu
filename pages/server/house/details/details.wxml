@@ -1,0 +1,85 @@
+<view class="main">
+  <view class="goods-box">
+    <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+      <block wx:for="{{image}}" wx:key="{{id}}">
+        <swiper-item>
+          <image src="{{item.pic}}" class="slide-image" mode="widthFix"/>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <image wx:if="{{show}}" src="{{img}}cart1.png" class="to-carts-icon"></image>
+    <view class="goods-title tl  ml15 mt15">【掌家优选服务】新年大扫除特惠套餐{{name}}</view>
+    <view class="tl  ml15 f12 red">春节不涨价！原价88元/小时，迎新春团购价：66元/小时 ！（三小时起）</view>
+    <view class="tl  ml15 f12">仅限2018.1.20—2018.1.31——掌家门户，您的贴心管家</view>
+    <view class="goods-stock tl ml15 orgron">团购名额还剩：{{count}}</view>
+    <!-- <view class="goods-stock tl ml15 ">{{time}}</view> -->
+    <view class="goods-stock tl ml15 ">距结束仅剩：{{clock}} {{micro_second}}</view>
+    <view class="zan-capsule zan-capsule--danger fl ml15">
+      <view class="zan-capsule__left">75折</view>
+      <view class="zan-capsule__right">限购一份</view>
+    </view>
+    <view class="f20  red fl  ml5" style='margin-left:200rpx'>￥{{now_price}}元</view>
+    <view class="goods-price old tl  ml15">￥{{orginal_price}}元</view>
+    <view class="goods-stock fl ml50" style='margin-left:280rpx'>每小时:</view>
+    <view class="goods-price red fl ml15">￥66元/时</view>
+    <view class="goods-price old tl ml15">￥88元/时</view>
+    <!-- <button type="primary" open-type='share'>转发</button> -->
+  </view>
+
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex == 0 ?'on':''}}" bindtap="bindTap" data-index="0">服务详情</view>
+    <view class="goods-tab-nav {{curIndex == 1 ?'on':''}}" bindtap="bindTap" data-index="1">服务参数</view>
+    <!-- <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view> -->
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">
+        <!-- <image src="../../../image/24go.png" class="goods-thumb" bindtap="PreviewTo" mode="widthFix"></image> -->
+
+        <view class="goods-thumb" wx:for="{{list1}}" wx:key="{{id}}">
+          <image src="{{item.pic}}" mode="widthFix"></image>
+        </view>
+      </view>
+      <view wx:if="{{curIndex == 1}}">
+        <view class="classname">上门服务有效期：2018.2.1—2018.2.7 </view>
+        <view class="classname">预约信息：请于2018.2.1致电客服电话0592-2199500进行预约 </view>
+        <view class="classname"> 温馨提示：订单服务时间为三个小时，超过时间按团购价66元/时计算</view>
+        <view class="classname">家庭保洁服务范围（室内所有表面清洁，不含专业清洗）
+                                厨房：窗户、油烟机表机（不包括油烟机内机部分）、厨柜、洗菜池、台面、垃圾桶、地面
+                                卫生间：窗户、洗漱台、沐浴房、马桶、垃圾桶、地面
+                                卧室：窗户、家具、地面
+                                客厅：窗户、电视柜、茶几、垃圾桶、门、地面
+                                餐厅：餐桌、餐椅、地面
+                                阳台：洗衣池、地面、防盗网
+        </view>
+        <!-- <view class="classname">质量{{weight}}</view>  -->
+        <view class="goods-thumb" wx:for="{{list2}}" wx:key="{{index}}">
+          <image src="{{item.pic}}" mode="widthFix"></image>
+        </view>
+      </view>
+      <!-- <view wx:if="{{curIndex === 2}}">
+        <image src="https://www.tzeqi.com/{{goods_photo}}" class="goods-thumb" bindtap="PreviewTo" mode="widthFix"></image>
+        <image src="https://www.tzeqi.com/{{goods_photo}}" class="goods-thumb" bindtap="PreviewTo" mode="widthFix"></image>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="bottom-btn-box">
+    <view class="flex tc bgwhite gridXt">
+      <view class="sub flex f20">
+        <button class="sub share bottom-btn" open-type="share">
+          <view class="iconfont icon-share"></view>
+          <view class="f12 grey">分享</view>
+        </button>
+        <!-- <view class="sub bottom-btn" catchtap="onShowCommentTap" data-doc-id="{{id}}" data-nickname="{{user.nickname}}" wx:if="{{config.show_comment!==0}}">
+          <view class="iconfont icon-comment"></view>
+          <view class="f12 grey">评论</view>
+        </view> -->
+      </view>
+      
+      <button class="contact" type="primary" bindtap="paybindTap"  data-price="{{now_price}}" wx:if="{{show_comment==1}}">预约购买</button>
+       <button class="contact" type="primary" disabled="true" catchtap="paynobindTap"  data-price="{{now_price}}" wx:if="{{show_comment ==0}}">不可购买</button> 
+      <!-- <button class="contact" type="primary" catchtap="onCallTap" disabled="{{mobile==''}}">联系Ta</button> -->
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,147 @@
+/* pages/my/message/message.wxss */
+page{
+    font-family: 微软雅黑;
+}
+text{
+font-size: 0.8em;
+}
+.selectTitle{
+    width: 100%;
+    height: 80rpx;
+    border-bottom:1rpx solid #eee;
+}
+.selectTitle text{
+    line-height: 80rpx;
+    color: #999;
+    font-size: 0.8em;
+    margin-left: 5%;
+}
+.line{
+    height: 1rpx;
+    width: 100%;
+    background-color: #999;
+}
+.oneSelect text{
+   line-height: 80rpx;
+   margin-left: 5%;
+   color: #333;
+}
+.select{
+    height: 90rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.select radio{
+    float: right;
+    line-height: 80rpx;
+    margin-right: 5%;
+}
+.carMessage{
+    width: 100%;
+    display: flex;
+    border-bottom: 1rpx solid #eee;
+    height: 170rpx;
+    align-items: center;
+}
+.carMessage text{
+  color:#666;
+  margin-left: 10%;
+  top:-18%;
+  position:relative;
+  font-size: 32rpx;
+}
+.carMessage .time{
+    font-size: 0.7em;
+    color: #999;
+    left: 15%;
+    position: absolute;
+    top: 8%;
+}
+.cleanOrder{
+    height: 120rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    background-color: white;
+}
+.cleanOrder .go image{
+    width: 16rpx;
+    height: 30rpx;
+    margin-left: 55%;
+    margin-top: 20rpx;
+}
+.cleanOrder .order{
+    position: absolute;
+}
+.cleanOrder .font{
+    margin-left: 5%;
+    width: 85%;
+}
+.cleanOrder .limit{
+    display: block;
+    color: #666;
+    font-size: 0.8em;
+}
+.bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120rpx;
+    display: flex;
+    border-top: 1rpx solid #eee;
+    background-color: white;
+}
+.bottom .price{
+    margin-left: 38rpx;
+    color: red;
+    display: block;
+    margin-top: 20rpx;
+}
+
+.bottom .time{
+    font-size: 0.7em;
+    color: #999;
+    left: 5%;
+    position: absolute;
+    bottom: 20rpx;
+}
+.pay{
+    line-height: 120rpx;
+    margin-right: 0;
+}
+.allimg{
+margin-left:5%;
+margin-top: 3%;
+height: 1em;
+width: 4em;
+}
+.oneSelect{
+    background-color:white;
+}
+.carMessage{
+    position: relative;
+    background-color: white;
+}
+picker{
+  margin-left: 50%;
+}
+.carimg{
+    width: 2em;
+    height: 2em;
+    margin-left: 5%;
+}
+
+.carMessage .time{
+    font-size: 25rpx;
+    color: #999;
+    left: 95rpx;
+    position: absolute;
+    top: 60%;
+}
+.carMessage .timee{
+    font-size: 0.7em;
+    color: #999;
+    left: 15%;
+    position: absolute;
+    top: 50%;
+}

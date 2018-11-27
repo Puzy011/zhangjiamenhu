@@ -1,0 +1,44 @@
+page{
+    font-family: 微软雅黑;
+}
+.common{
+    display: flex;
+    justify-content: center;
+}
+ .zhaopian{
+    width: 450rpx;
+    height: 450rpx;
+    margin-top: 170rpx;
+    border-radius: 55%;
+}
+
+.biaoyu{
+    width: 240rpx;
+    height: 40rpx;
+    margin-top: 180rpx;
+    line-height: 40rpx;
+    font-size: 40rpx;
+    color: #555;
+}
+.biaoyu text{
+  color: #4697e8;
+}
+.zhangjia{
+    font-size: 2em;
+    font-weight: 600;
+    color: #333;
+    margin-top: 20rpx;
+}
+
+.versions {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #666;
+    margin-top: 120rpx;
+}
+.wangzhi{
+    font-size: 0.6em;
+    font-weight: 500;
+    color: #999;
+    margin-top: 10rpx;
+}

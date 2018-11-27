@@ -1,0 +1,187 @@
+<!--index.wxml-->
+<!--公告-->
+<view class="tops " catchtap="onNavigateTap" data-notice="{{notices}}" data-url="gonggao/gonggao">
+  <image src='{{img}}original.png' style='width:94%;height:60rpx;margin-left:3%;'></image>
+  <view class="notices  bgwhite">
+    <view class='title'>{{titles}}</view>
+    <view class="user-content mt15">{{textares}}</view>
+    <view class="flex mt10" style="align-items:center;">
+      <!--<image wx:if='{{author=="浅水湾畔"}}' class="left-img" mode="aspectFill" src="{{img}}qswp.jpg"></image>
+      <image wx:else class="left-img" mode="aspectFill" src="{{img}}women.jpg"></image>-->
+      <view class="sub ml10 user-msg">
+        <view class="user-name" wx:if='{{author=="浅水湾畔"}}'>{{author}}</view>
+        <view class="user-name" wx:else>掌家门户</view>
+        <view class="f12 grey mt5">
+          <text>{{time}}</text>
+        </view>
+      </view>
+      <view class="tr   grey " wx:if='{{allInfo==1}}'>
+        <!-- <text>●投票进行中</text> -->
+        <text>●未进行投票</text>
+      </view>
+      <!-- <view class="tr">
+        <button class='origin fa-btn' catchtap="onNavigateTap" data-url="../write-gao/write-gao" data-type="switch">+发布公告</button>
+      </view> -->
+    </view>
+  </view>
+
+  <!--投票的版块  -->
+  <!-- <view class="tr votes grey ">
+    <text class="mr10"> 反对：324 </text>
+    <text class="mr10"> 赞成：23242{{config.view_count}}</text>
+    <view>
+      <button type='default' class="mr10 votebtn" size='mini'>反对</button>
+      <button type='primary' class="votebtn ml10" size='mini'>赞成</button>
+    </view>
+  </view> -->
+
+</view>
+
+<!--广告位-->
+<!-- <template name="ad">
+  <view class="adsense tc mt10">
+    <image class="ad-img" mode="aspectFill" src="https://www.tzeqi.com/upload/2017/10/12/20171012113125706.jpg"></image>
+    <text class="ad-text f12 write">广告</text>
+  </view>
+</template> -->
+
+<!-- <block wx:if="{{config.ad_sort==1}}">
+  <template is="ad" data="{{ad_img:ad_img}}" />
+  <template is="category" data="{{categorys:categorys,imgHeight:imgHeight}}" />
+</block>
+<block wx:else>
+  <template is="category" data="{{categorys:categorys,imgHeight:imgHeight}}" />
+  <template is="ad" data="{{ad_img:ad_img}}" />
+</block> -->
+
+<!-- <view class="tr  pageviews red f12" bindtap="zaocanTo">
+  <text class="mr10">浏览：23242{{config.view_count}}</text>
+  <text class="mr10">发布：22{{config.info_count}}</text> 
+  <text>分享：3215</text> 
+  <view class="marquee_text ml30" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;" >
+    {{text}}
+  </view>
+</view> -->
+
+<!--排序分类-->
+<view class="flex tc paixu f16 grey mt10 mb10" id='tab'>
+  <image src='{{img}}yewubg.png' style='width:100%;height:160rpx;position: absolute;'></image>
+  <view class="flex {{isTabFixed?'fixed-top':''}}" style='position: absolute;'>
+    <view class="sub title-item" catchtap="" data-url="../server/mycom/mycom" data-index="0">
+      <view>
+      <!-- onNavigateTap -->
+        <image src='{{img}}zaocan.png' class='tab-icon' style='width:40%;' mode='widthFix'></image>
+      </view>
+      掌家早餐
+    </view>
+    <view class="sub title-item" catchtap="onNavigateTap" data-url="baoxiu/baoxiu" data-index="2">
+      <view>
+        <image src='{{img}}baoxiu.png' class='tab-icon' style='width:40%;' mode='widthFix'></image>
+      </view>
+      故障报修</view>
+    <view class="sub title-item" catchtap="onNavigateTap" data-url="{{etc_url}}" data-index="3">
+      <view>
+        <image src='{{img}}wuye1.png' class='tab-icon' style='width:40%;' mode='widthFix'></image>
+      </view>
+      联系物业</view>
+    <view class="sub title-item" data-index="1">
+      <view>
+        <button open-type='contact' class='contact_btn'>
+          <image src='{{img}}kefu1.png' class='tab-icon' style='width:45%;' mode='widthFix'></image>
+        </button>
+      </view>
+      <button open-type='contact' class='contact_btn'>掌家客服 </button>
+    </view>
+  </view>
+</view>
+
+<view>
+  <view class="notice-list mb10 bgwhite" wx:for="{{items}}" wx:for-item="name" wx:key="id">
+    <view class="flex notice-head" style="align-items:center;">
+      <image class="head-img" src="{{name.mpic}}"></image>
+      <view class="sub ml10 user-msg">
+        <view class="user-name fl">{{name.nickname}} </view>
+        <view class="f12 grey mt5 fr">
+          <text>{{name.time}}</text>
+        </view>
+      </view>
+      <!-- <view class="contact gridFour red mr5" data-mobile="15036036796">联系Ta</view> -->
+    </view>
+    <swiper autoplay='true' indicator-dots="{{name.pic_arr.length>1?true:false}}" circular='true' style="height:600rpx;background-color:black" catchtap="onNavigateTap" data-url="detail/detail?id={{name.id}}">
+      <block wx:for="{{name.pic_arr}}" wx:for-item="piclist" wx:key="pic">
+        <swiper-item>
+          <image class='swiper-img' mode='aspectFill' src="https://www.zhangjiamenhu.com/{{piclist}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="notice_content" catchtap="onNavigateTap" data-url="detail/detail?id={{name.id}}">{{name.content=='undefined'||name.content==null?'掌家门户为您服务':name.content}}</view>
+    <view class="place mt10 grey f12">
+    </view>
+    <view class="grey flex mt10 gridXt f12" style="align-items:center;padding-top:5px;">
+      <view class="sub classify red" data-invalid="false" wx:if="{{name.type == 2}}"> 报修</view>
+      <view class="sub classify orange" data-invalid="false" wx:if="{{name.type == 2 && name.service_status == 0}}"> 已接单</view>
+      <view class="sub classify green" data-invalid="false" wx:if="{{name.type == 2 && name.service_status == 1}}"> 进行中</view>
+      <view class="sub classify blue" data-invalid="false" wx:if="{{name.type == 2 && name.service_status == -1}}"> 已完成</view>
+      <view class="sub classify blue" data-invalid="false" wx:elif="{{name.type == 1}}"> 邻里圈</view>
+      <view class="f16 linght">
+        <view class="iconBtn" catchtap="onShowCommentTap" data-thisid='{{name.id}}'>
+          <text class="mr5 iconfont icon-comment"></text> {{name.number===null?'0':name.number}}
+        </view>
+        <view class="iconBtn">
+          <text class="mr5 iconfont {{is_good?'icon-appreciatefill':'icon-appreciate'}} {{isActive?'zanactive':''}}"></text> {{name.click==null?'0':name.click}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--评论输入框-->
+<view class="floatBox" wx:if="{{show_comment}}">
+  <view class="pinglun-input">
+    <view class="flex f16">
+      <text class="sub">评论</text>
+      <text class="close tc grey" catchtap="onHideCommentTap">×</text>
+    </view>
+    <form report-submit="true" bindsubmit="onCommentSubmit">
+      <view class="input-box mt10">
+        <textarea name="content" focus="true" fixed="true" cursor-spacing="115" placeholder="{{review}}" placeholder-class="linght" />
+      </view>
+      <view class="flex mt10">
+        <view class="sub linght f12">
+          <text class="mr5 iconfont icon-wran"></text>请遵循用户协议</view>
+        <button class="send-btn f16" type="primary" form-type="submit">发送</button>
+      </view>
+    </form>
+  </view>
+  <view class="floatBox floatBoxBg" style="display:block;" catchtap="onHideCommentTap"></view>
+</view>
+
+<!--没有更多了-->
+<view class="nothing tc linght flex mt10 mb10" wx:if="{{hasMore}}">
+  <text class="sub line mr10"></text>
+  <text>没有更多了</text>
+  <text class="sub line ml10"></text>
+</view>
+<view class="nothing tc linght flex mt10 mb10" wx:else>
+  <view class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</view>
+<!--掌GO  -->
+<!-- <view class="aside-float-go">
+  <image src='../image/24go.png' style='width:82rpx;border-radius:50%;' mode='widthFix' bindtap="mallTo"></image>
+</view> -->
+<!--我要发布-->
+<view class="aside-float" wx:if='{{auth == 2}}'>
+  <!-- <button class="iconfont icon-add " type="primary" catchtap="onNavigateTap" data-url="../write/write" data-type="switch"></button> -->
+  <image src='../image/pen.png' style='width:82rpx;' mode='widthFix' catchtap="onNavigateTap" data-url="../write/write"></image>
+  <!--弹出菜单❤❤爱心❤❤  -->
+  <!-- <view>
+    <image src="/pages/image/heart1.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+    <image src="/pages/image/heart2.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+    <image src="/pages/image/heart_button.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+    <image src="/pages/image/heart3.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+  </view> -->
+  <!-- <button class="iconfont icon-kefu" type="primary" open-type='contact'></button>  -->
+</view>

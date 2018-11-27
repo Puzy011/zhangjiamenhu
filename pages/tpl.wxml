@@ -1,0 +1,205 @@
+<template name="list">
+    <view class="msg-list mb10 bgwhite" wx:for="{{data}}" wx:key="{{item.id}}" catchtap="onNavigateTap" data-url="../detail/detail?id={{item.id}}" style="{{styles[item.cid].list_item}}">
+
+        <!--置顶-->
+        <view class="vip-top-box" wx:if="{{item.is_top>0}}">
+            <text class="vip-top f12">置顶</text>
+        </view>
+
+        <!--发贴人信息-->
+        <view class="flex" style="align-items:center;">
+            <image class="left-img" src="{{item.headimgurl}}" catchtap="onNavigateTap" data-url="../frd_info/frd_info?uid={{item.uid}}" mode="aspectFill"></image>
+            <view class="sub ml10 user-msg">
+                <view class="user-name">{{item.nickname}}
+                    <text class='admin-flag' wx:if='{{item.is_admin}}'>管理员</text>
+                </view>
+                <view class="f12 grey mt5">
+                    <text>{{item.create_time}}</text>
+                    <!-- <text class="red ml10 f14"><text class="hongbao-ico iconfont icon-hongbao"></text><text>红包福利</text></text> -->
+                </view>
+            </view>
+
+            <block wx:if="{{isCurrentUser}}">
+                <block wx:if="{{item.is_pay>0}}">
+                    <view class="red" wx:if="{{item.is_pay==1}}">未支付</view>
+                    <view class="grey" wx:elif="{{item.is_pay==2}}">已支付</view>
+                </block>
+                <block wx:else>
+                    <view class="red" wx:if="{{item.status==0}}">正在审核</view>
+                </block>
+            </block>
+            <block wx:else>
+                <view class="red mr5" wx:if="{{item.status==0}}">正在审核</view>
+                <view class="contact gridFour red mr5" data-mobile="{{item.mobile}}" catchtap="onCallTap" hidden="{{!item.mobile}}">联系Ta</view>
+            </block>
+
+        </view>
+
+        <!--发布内容-->
+        <view class="user-content mt15">{{item.content}}</view>
+
+        <!--图片-->
+        <view class="content-img clearfix mt10" wx:if="{{item.imgs.length}}" catchtap="onPreviewTap" data-urls="{{item.imgs}}">
+            <view class="img-list fl" wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index='imgIndex' wx:if="{{imgIndex<3}}" wx:key="{{imgIndex}}">
+                <image src="{{img}}?imageView2/1/w/136/h/136/q/75|imageslim" mode="aspectFill" data-index="{{imgIndex}}"></image>
+                <view class="more-img tc" wx:if="{{imgIndex==2 && item.imgs.length>3}}" data-index="{{imgIndex}}">+{{item.imgs.length-3}}</view>
+            </view>
+        </view>
+        <view class="mt10 grey">
+            <text class="content-tag gridFourCirle" wx:for='{{item.tags}}' wx:key='{{index}}'>{{item}}</text>
+        </view>
+        <!--位置-->
+        <view class="place mt10 grey f12" wx:if="{{item.address}}">
+            <text class="iconfont icon-locationfill mr5"></text> {{item.address}}
+        </view>
+
+        <!-- 我的发布列表 功能按钮 -->
+        <view class="grey flex mt5" style="align-items:center;" wx:if="{{isCurrentUser}}">
+            <view class="sub classify" catchtap="onNavigateTap" data-url="../lists/lists?cid={{item.cid}}&title={{item.category_title}}&childCid={{item.cid2}}">#{{item.category_title}}
+                <text wx:if='{{item.cid2>0}}'>●{{item.category2_title}}</text>#</view>
+            <view class="grey tc">
+                <text class="contact del gridFour" catchtap='onDelTap' data-id='{{item.id}}' data-index='{{index}}'>删除</text>
+                <view class="contact gridFour red ml10" wx:if="{{item.is_pay==1}}" data-doc-id="{{item.id}}" catchtap="onPayTap">支付</view>
+            </view>
+        </view>
+        <!-- 首页展示 -->
+        <view wx:else class="grey flex mt10 gridXt" style="align-items:center;padding-top:10rpx;">
+            <view class="sub classify red" catchtap="onNavigateTap" data-url="../lists/lists?cid={{item.cid}}&title={{item.category_title}}&childCid={{item.cid2}}" data-invalid="{{cate_invalid===true}}">#{{item.category_title}}
+                <text wx:if='{{item.cid2>0}}'>●{{item.category2_title}}</text>#</view>
+            <!--浏览量评论点赞-->
+            <view class="f16 linght">
+                <view class="iconBtn" wx:if="{{config.show_read_count!==0}}">
+                    <text class="mr5 iconfont icon-attention"></text>{{item.click}}
+                </view>
+                <view class="iconBtn" data-doc-id="{{item.id}}" data-index="{{index}}" data-nickname="{{item.nickname}}" wx:if="{{config.show_comment!==0}}">
+                    <text class="mr5 iconfont icon-comment"></text>{{item.comment}}
+                </view>
+                <!--点赞  -->
+                <!-- <view class="iconBtn {{item.is_good?'green':''}}" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{config.show_good!==0}}" catchtap='onGoodTap'>
+                    <text class="mr5 iconfont icon-appreciate {{item.is_good?'icon-appreciatefill':'icon-appreciate'}}"></text>{{item.good}}
+                </view> -->
+            </view>
+        </view>
+
+        <!--评论内容-->
+        <view class="comment mt10" wx:if="{{item.comment_list.length && config.show_comment!==0}}" data-index="{{index}}">
+            <view wx:for="{{item.comment_list}}" wx:for-index="comment_index" wx:key="{{comment_index}}">
+                <view class="comment-item">
+                    <text class="blue mr5" data-reply-id="{{item.id}}" data-uid="{{item.uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.nickname}}">{{item.nickname}}:</text>
+                    <text>{{item.content}}</text>
+                </view>
+                <view class="comment-item" wx:for="{{item.reply_list}}" wx:key="{{index}}">
+                    <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.nickname}}">{{item.nickname}}</text>
+                    <text>回复</text>
+                    <text class="blue mr5" data-reply-id="{{item.reply_id}}" data-uid="{{item.reply_uid}}" data-comment-index="{{comment_index}}" data-nickname="{{item.reply_nickname}}">{{item.reply_nickname}}:</text>
+                    <text>{{item.content}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<!--评论内容-->
+<template name="">
+    <view class="bgwhite mt10">
+        <view class="co-title f16 gridXb">全部评论（{{data.length}}）</view>
+        <view class="comment f14" wx:if="{{data.length && config.show_comment!==0}}" catchtap="onShowCommentTap">
+            <view class="co-item flex gridXb" wx:for="{{data}}" wx:key="{{item.id}}" catchlongtap="onShowDeleteCommentTap" data-id="{{item.id}}" data-index="{{index}}" data-uid="{{item.uid}}" data-show="{{currentUid==item.uid||currentUid==uid?1:0||is_admin}}">
+                <view class="co-userimg">
+                    <image src="{{item.headimgurl}}"></image>
+                </view>
+                <view class="sub ml15">
+                    <view class="flex grey name">
+                        <text class="sub lineText" data-reply-id="{{item.id}}" data-uid="{{item.uid}}" data-index="{{index}}" data-nickname="{{item.nickname}}">{{item.nickname}}</text>
+                        <text class="linght">3楼</text>
+                    </view>
+                    <view class="f16 mt5">{{item.content}}</view>
+                    <!-- 时间  回复  举报 -->
+                    <view class="flex mt10 grey" style="align-items:center;">
+                        <view class="sub">2017-8-30</view>
+                        <view class="co-caozuo iconfont icon-jubao linght"></view>
+                        <view class="co-caozuo iconfont icon-huifu"></view>
+                    </view>
+                    <view class="co-answerb mt10" wx:if="{{item.reply_list.length}}">
+                        <view class="co-answer" wx:for="{{item.reply_list}}" wx:for-index="replyIndex" wx:key="{{item.id}}" data-id="{{item.id}}" catchlongtap="onShowDeleteCommentTap" data-uid="{{item.uid}}" data-show="{{currentUid==item.uid||currentUid==uid?1:0||is_admin}}"
+                            data-index="{{index}}" data-reply-index="{{replyIndex}}">
+                            <view class="blue mb5" data-reply-id="{{item.reply_id}}" data-uid="{{item.uid}}" data-index="{{index}}" data-nickname="{{item.nickname}}">{{item.nickname}}</view>
+                            <!-- <text>回复</text>  -->
+                            <!-- <text class="blue" data-reply-id="{{item.reply_id}}" data-uid="{{item.reply_uid}}" data-index="{{index}}" data-nickname="{{item.reply_nickname}}">{{item.reply_nickname}}：</text>  -->
+                            <text>{{item.content}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<!--评论输入框-->
+<template name="">
+    <view class="floatBox" wx:if="{{show_comment}}">
+        <view class="pinglun-input">
+            <view class="flex f16">
+                <text class="sub">评论</text>
+                <text class="close tc grey" catchtap="onHideCommentTap">×</text>
+            </view>
+            <form report-submit="true" bindsubmit="onCommentSubmit">
+                <textarea class="mt10" name="content" focus="true" fixed="true" cursor-spacing="115" placeholder="{{comment_placeholder}}" placeholder-class="linght" />
+                <!-- <input class="mr10" name="content" focus="true" placeholder="{{comment_placeholder}}" /> -->
+                <view class="flex mt10">
+                    <view class="sub linght f12">
+                        <text class="mr5 iconfont icon-wran"></text>请遵循用户协议</view>
+                    <button class="send-btn f16" type="primary" form-type="submit">提交</button>
+                </view>
+            </form>
+        </view>
+        <view class="floatBox floatBoxBg" style="display:block;" catchtap="onHideCommentTap"></view>
+    </view>
+</template>
+
+<!-- 分类列表弹出框 -->
+<template name="">
+    <view class="floatBox" style="display:none;">
+        <view class="bgwhite pup-content mid tc">
+            <view class="pop-item gridXb">回复</view>
+            <view class="pop-item gridXb">举报</view>
+        </view>
+        <view class="floatBox floatBoxBg" style="display:block;"></view>
+    </view>
+</template>
+
+<!-- 多选弹出框 -->
+<template name="">
+    <view class="floatBox" style="display:none;">
+        <view class="bgwhite pup-content mid">
+            <view class="red" style="padding:0 30rpx;">请选择举报类型</view>
+            <radio-group style="padding:0 30rpx;">
+                <label class="pop-item gridXb flex">
+                    <view class="sub">广告或垃圾营销</view>
+                    <radio />
+                </label>
+                <label class="pop-item gridXb flex">
+                    <view class="sub">有害信息</view>
+                    <radio />
+                </label>
+                <label class="pop-item gridXb flex">
+                    <view class="sub">违法信息</view>
+                    <radio />
+                </label>
+                <label class="pop-item gridXb flex">
+                    <view class="sub">淫秽色情信息</view>
+                    <radio />
+                </label>
+                <label class="pop-item gridXb flex">
+                    <view class="sub">人身攻击</view>
+                    <radio />
+                </label>
+            </radio-group>
+            <view class="flex tc gridXt pup-btn">
+                <view class="sub gridYr">取消</view>
+                <view class="sub">确定</view>
+            </view>
+        </view>
+        <view class="floatBox floatBoxBg" style="display:block;"></view>
+    </view>
+</template>

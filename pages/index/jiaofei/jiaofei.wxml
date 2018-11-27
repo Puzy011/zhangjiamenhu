@@ -1,0 +1,34 @@
+<!-- <view class="all" wx:if="{{display==2}}">
+    <view class="saoma" bindtap="saomakaisuo" wx:if="{{ewm}}">
+    <text>{{ObtainQR_code}}</text>
+    </view>
+    <view wx:else>
+    <image src="https://{{erweima}}" class="kaisuoma"></image>
+    </view>    -->
+<!-- 一键开锁 -->
+<!-- <image src="{{kaisuotp}}" class="topimag" bindtap="kaisuo"></image>
+    <text>{{state}}</text>
+</view>
+
+<view wx:else class="tipview">
+  <view>请进行业主验证</view>
+  <view>并联系物业认证</view>
+  <button bindtap="kaisuoshuaxin" class="kaisuoshuaxin">验证后点此刷新</button>
+</view> -->
+<view id="all">
+<view class="bottom">
+  <view class="one">
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class="two">
+      <text class="text1">{{money}}</text>
+    </view>
+    <view class="all_money_img">
+      <image bindtap="allMoneyTo" src="{{img}}zhongjian.png"></image>
+    </view>
+    <view class="four">
+      <button formType="submit">付款</button>
+    </view>
+  </form>
+</view>
+</view>

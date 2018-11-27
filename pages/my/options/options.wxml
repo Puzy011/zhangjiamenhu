@@ -1,0 +1,150 @@
+<view class="my">
+  <image src="{{userInfo.avatarUrl}}" class="touxiang"></image>
+  <view class='identi'>{{identi}}</view>
+</view>
+<view class="tip">{{tip}}</view>
+<form bindsubmit="buttonTo" report-submit='true'>
+  <view>
+    <view class="carMessage">
+      <text>姓名</text>
+      <input bindinput="Name" type="text" name="username" placeholder="请输入您的真实姓名" value="{{Name}}" required/>
+    </view>
+
+    <view class="carMessage">
+      <text>电话: +86</text>
+      <input bindinput="phone" type="number" name="userphone" maxlength="11" placeholder="请输入有效手机号码" value="{{phone}}" required/>
+    </view>
+
+    <view class="carMessage">
+      <text>身份证号</text>
+      <input bindinput="Rank" type="idcard" name="userrank" placeholder="请填写真实身份证号" value="{{Rank}}" required/>
+    </view>
+
+    <view class="carMessages">
+      <text>小区</text>
+      <view class="weui-cell__bd">
+        <dl class="menu">
+          <dt data-index="0" bindtap="tapMainMenu">
+            <view class="{{inputclass}}">{{residential_name}}</view>
+          </dt>
+          <dd class="{{subMenuDisplay[0]}}">
+            <radio-group class="oneSelect" bindchange="radioChange">
+              <label class="radio">
+                <view class="select">
+                  <radio value="qianshui" checked="{{residential_name=='浅水湾畔'?true:false}}">浅水湾畔</radio>
+                </view>
+              </label>
+               <label class="radio">
+                <view class="select">
+                  <radio value="dayang" checked="{{residential_name=='大洋山庄'?true:false}}">大洋山庄</radio>
+                </view>
+              </label> 
+              <label class="radio">
+                <view class="select">
+                  <radio value="wenyuana" checked="{{residential_name=='文园雅阁1栋'?true:false}}">文园雅阁1栋</radio>
+                </view>
+              </label>
+               <label class="radio">
+                <view class="select">
+                  <radio value="wenyuanb" checked="{{residential_name=='文园雅阁2栋'?true:false}}">文园雅阁2栋</radio>
+                </view>
+              </label>
+               <label class="radio">
+                <view class="select">
+                  <radio value="wenyuanc" checked="{{residential_name=='文园雅阁3栋'?true:false}}">文园雅阁3栋</radio>
+                </view>
+              </label>
+               <label class="radio">
+                <view class="select">
+                  <radio value="wenyuand" checked="{{residential_name=='文园雅阁4栋'?true:false}}">文园雅阁4栋</radio>
+                </view>
+              </label>
+            </radio-group>
+          </dd>
+        </dl>
+      </view>
+    </view>
+    
+    <view class="carMessage">
+      <text>楼号</text>
+      <input bindinput="Floor" type="number" name="userbuild" placeholder="例：1号楼" value="{{Floor}}" required />
+    </view>
+
+    <view class="carMessage">
+      <text>户号</text>
+      <input bindinput="userID" type="number" name="userid" placeholder="例：102号/室" value="{{userID}}" required/>
+    </view>
+  </view>
+
+  <view class="{{selected?'shows':'hidden'}}">
+    <view class="carmessages">
+      <text>您的手机号：</text>
+      <input bindinput="cellnumber" type="number" name="usernumber" maxlength="11" placeholder="输入手机号" value="{{cellnumber}}" />
+      <view wx:if="{{yzm}}">
+        <button class="phoneyzm" bindtap="Getkeys">获取验证码</button>
+      </view>
+      <view wx:else>
+        <button class="phoneyzm">{{second}}s</button>
+      </view>
+    </view>
+    <!--(注：业主手机号为物业验证过的业主号码)-->
+
+    <view class="carmessages">
+    <text>您的验证码：</text>
+      <input type="number" bindinput="sendMessage" placeholder="请输入验证码" value="{{yanzheng}}" />
+    </view>
+
+    <view wx:if="{{auth==1 && tip==''}}" class="yezhu"> 请业主到物业认证~ </view>
+    <view wx:elif="{{auth==2}}">
+      <image src="{{img}}chinese.png" class="renzheng"></image>
+    </view>
+    <view class="weui-cells weui-cells_after-title" bindtap="itemTo">
+      <radio-group data-name="country">
+        <label class="weui-cell weui-check__label" wx:for="{{['已阅读并同意使用条款']}}" wx:key="*this">
+          <view class="weui-cell__hd">
+            <radio value="{{item}}" checked="true" />
+          </view>
+          <view class="weui-cell__bd weui-cell-line">{{item}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="{{selected1?'shows':'hidden'}}">
+    <view class="carmessages">
+      <text>业主手机号：</text>
+      <input bindinput="cellnumber" type="number" name="usernumber" maxlength="11" placeholder="输入手机号" value="{{cellnumber}}" />
+      <view wx:if="{{yzm}}">
+        <button class="phoneyzm" bindtap="Getkey">获取验证码</button>
+      </view>
+      <view wx:else>
+        <button class="phoneyzm">{{second}}s</button>
+      </view>
+    </view>
+    <view class="phonebeizhu">(注：业主手机号为物业验证过的业主号码)</view>
+    <view class="carmessages">
+    <text>业主验证码：</text>
+      <input type="number" bindinput="sendMessage" placeholder="请输入验证码" value="{{yanzheng}}" />
+    </view>
+  </view>
+
+  <view class="{{selected2?'shows':'hidden'}}">
+    <view class="carmessages">
+      <text>业主手机号：</text>
+      <input bindinput="cellnumber" type="number" name="usernumber" maxlength="11" placeholder="输入手机号" value="{{cellnumber}}" />
+      <view wx:if="{{yzm}}">
+        <button class="phoneyzm" bindtap="Getkey">获取验证码</button>
+      </view>
+      <view wx:else>
+        <button class="phoneyzm">{{second}}s</button>
+      </view>
+    </view>
+    <view class="phonebeizhu">(注：业主手机号为物业验证过的业主号码)</view>
+    <view class="carmessages">
+      <text>业主验证码：</text>
+      <input type="number" bindinput="sendMessage" placeholder="请输入验证码" value="{{yanzheng}}" />
+    </view>
+  </view>
+  
+  <button form-type="submit" class="submit" type="primary">提交</button>
+</form>

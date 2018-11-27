@@ -1,0 +1,279 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <view class='bg_1'>
+      <image src='{{img}}b1.png' class='bg_img' mode="widthFix"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname1">{{userInfo.nickName}}</text>
+      <image src='{{img}}xian2.png' class="userinfo-nickname-xian1" mode="widthFix"></image>
+      <text class="userinfo-nickname2">信用积分:85</text>
+      <image src='{{img}}xian1.png' class="userinfo-nickname-xian2" mode="widthFix"></image>
+    </view>
+
+
+  </view>
+  <!-- <view class="usermotto">
+     <button class="btn-credit" bindtap="creditTo">掌Go信用</button>
+    <button class="btn-list" bindtap="listTo">购物记录</button> 
+  </view> -->
+
+  <!-- <view class="page__hd">
+    <view class="weui-cell" bindtap="creditTo">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{img}}my-111.png" style="width: 60px; height: 60px; display: block" />
+        
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-size: 16px;font:bold;color: #131313;">掌Go信用</view>
+        <view style="font-size: 13px;color: #888888;">查看您的信用历史</view>
+      </view>
+    </view>
+    <view class="weui-cell2" bindtap="listTo">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{img}}my-2.png" style="width: 60px; height: 60px; display: block" />
+        
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-size: 16px;font:bold;color: #131313;">购买记录</view>
+        <view style="font-size: 13px;color: #888888;">查看已完成订单</view>
+      </view>
+    </view>
+    <view class="weui-cell3">
+      <button open-type="contact">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{img}}my-3.png" style="width: 60px; height: 60px; display: block" />
+        </view>
+        <view class="weui-cell__bd" style="height:38px;margin-top: -38px;margin-left: 70px;">
+          <view style="font-size: 16px;font:bold;color: #131313;">联系客服</view>
+          <view style="font-size: 13px;color: #888888;margin-top: 20px;">有问题找客服</view>
+        </view>
+      </button>
+    </view>
+  </view> -->
+  <!--3tab  -->
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">
+      <view>
+        <image src='../image/zhangjia.png' class='tab-icon' mode='widthFix'></image>
+      </view>
+      <text class='tab-txt'>成员</text>
+    </view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">
+      <view>
+        <image src='../image/zhijia.png' class='tab-icon' mode='widthFix'></image>
+      </view>
+      <text class='tab-txt'>消息</text>
+    </view>
+    <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">
+      <view>
+        <image src='../image/fuwu.png' class='tab-icon' mode='widthFix'></image>
+      </view>
+      <text class='tab-txt'>客服</text>
+    </view>
+
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">
+        <view class='content_index'>
+
+          <view class="tr pt10 pageviews grey f12">
+            <text class="mr15" bindtap="a">查看更多</text>
+          </view>
+          <view class="tl mt-20 pageviews grey f12">
+            <text class='ml15'>总人数：233</text>
+          </view>
+
+          <view class='line'></view>
+          <!--遮罩层  -->
+          <view class="b1" hidden="{{flag}}">
+            <view class="t_w">
+              <view class="t_image">
+                <!-- <image class="t_image1" src="http://img.zhangjiamenhu.com/z-33.png"></image> -->
+              </view>
+              <view class="b2">
+                <view class="v1">
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='kaisuo'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>李四</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>李四</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='kaisuo'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='kaisuo'></image>
+                    <text>李四</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>李四</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='kaisuo'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+                  <view class='grid-icon'>
+                    <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+                    <text>张三</text>
+                  </view>
+
+                  啊啊啊啊啊啊啊啊
+                </view>
+                <view class="btn1" bindtap="b">
+                  <p class="p1">取消</p>
+                  <!-- <p class="p2">哦</p> -->
+                </view>
+                <!-- <view class="btn2" bindtap="b">
+          <p class="p1">网上预约快递公司</p>
+          <p class="p2">快递公司可能无法及时响应，请耐心等待哦</p>
+        </view> -->
+              </view>
+            </view>
+          </view>
+
+          <view class="vl1">
+            <view class='grid-icon' catchtap="onNavigateTap" data-type="switch" data-url="index/index?id=262069">
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='kaisuo'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <view class='grid-icon'>
+              <image class="icon-img" src="{{userInfo.avatarUrl}}" mode='widthFix'></image>
+              <text>张三</text>
+            </view>
+            <!-- <view class="tr" >
+              <button class='origin fa-btn'  data-type="switch">+发布公告</button>
+            </view> -->
+
+            <!-- 由于您周边100米有没有一键开门服务，一键开门将无法为您提供 -->
+          </view>
+          <view class="tc pageviews  ">
+            <button class='origin add-btn' open-type="share">邀请业主</button>
+          </view>
+
+        </view>
+
+      </view>
+      <view wx:if="{{curIndex === 1}}">
+        <view class='content_index'>
+          <view class="tr pt10  pageviews grey f14">
+            <text class="mr15" catchtap="onNavigateTap" data-type="switch" data-url="../my-lists/my-lists?id=262069">查看更多</text>
+          </view>
+          <view class="tl  mt-20 pageviews  f14">
+            <text class='ml15'>我发布的</text>
+          </view>
+          <view class='line'></view>
+
+          <view class="tc pageviews  ">
+
+            <view class="tl mt15 mr10 ml15 pageviews grey f16">
+              <text class='ml15 vl2'>我发布的内我发布的内容我发布的内我容我发布的内我我发布的内容我发布的内我我发布的内容我发布的内我发布的内容我发布容我发布的内容</text>
+            </view>
+            <view class="tr pt10 pageviews grey f12">
+              <text class="mr15">2017-12-12</text>
+            </view>
+          </view>
+        </view>
+        <view class='content_index'>
+          <view class="tr  pageviews grey f14">
+            <text class="mr15" catchtap="onNavigateTap" data-type="switch" data-url="../my_com/my_com?id=262069">查看更多</text>
+          </view>
+          <view class="tl mt-20 pageviews  f14">
+            <text class='ml15'>我评论的</text>
+          </view>
+          <view class='line'></view>
+
+          <view class="tc pageviews  ">
+
+            <view class="tl mt15 mr10 ml15 pageviews grey f16">
+              <text class='ml15 vl2'>我发布的内容我发布的内我我发布的容我发布我发布的内容我发布的内容我发布的内容</text>
+            </view>
+            <view class="tr  pageviews grey f12">
+              <text class="mr15">2017-12-12</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{curIndex === 2}}">
+        <view class='content_index'>
+
+          <!-- <contact-button type="default-light" size="20" session-from="weapp">
+          </contact-button> -->
+          <!-- 333 -->
+           <button type='primary' open-type="contact">进入客服会话</button>
+        </view>
+
+      </view>
+
+    </view>
+  </view>
+  <!--弹出菜单  -->
+  <!-- <view>
+    <image src="/pages/image/heart1.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+    <image src="/pages/image/heart2.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+    <image src="/pages/image/heart_button.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
+    <image src="/pages/image/heart3.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+  </view> -->
+</view>

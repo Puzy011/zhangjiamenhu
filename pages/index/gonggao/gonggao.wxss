@@ -1,0 +1,35 @@
+/* page{
+  background: #fff;
+} */
+.headline{
+    font-size: 1.8em;
+   display: block;
+   text-align: center;
+}
+.times{
+    color: #b8b8b8;
+    margin-right: 2%;
+    float: right;
+}
+.real{
+    float: left;
+    margin-left: 2%;
+    color: #576b95;
+}
+image{
+    margin-left: 7%;
+}
+.content{
+    font-size: 1em;
+    float: left;
+    padding: 10%;
+}
+.content-img{
+    padding-top: 3%;
+}
+.txt text{
+    line-height: 20px;
+}
+.line{
+  height: 3rpx;
+}

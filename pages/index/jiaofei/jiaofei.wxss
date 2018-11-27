@@ -1,0 +1,192 @@
+page {
+  font-family: 微软雅黑;
+  margin: 0;
+  padding: 0;
+}
+
+#all {
+  /* background-image: url(http://img.zhangjiamenhu.com/HomePage.png);  */
+  background-position-y: -90rpx;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+}
+.bottom {
+  width: 92%;
+  /*height: 450rpx;*/
+  margin: 1.5% 0 0 4%;
+  background-color: #fff;
+  opacity: 0.95;
+  border-radius: 10rpx;
+}
+
+.bottom text {
+  font-family: 微软雅黑;
+}
+
+.bottom .one {
+  height: 20%;
+  width: 100%;
+}
+
+.bottom .one image {
+  width: 6%;
+  height: 35%;
+  margin: 3% 0 0 41%;
+}
+
+.one_text {
+  text-align: center;
+  margin-left: 2%;
+}
+
+.bottom .one text {
+  font-size: 0.9em;
+}
+
+.bottom .two {
+  height: 21%;
+  margin: 10% 30%;
+  display: flex;
+}
+
+.bottom .two .text {
+  font-size: 0.8em;
+  float: left;
+  margin-top: 30rpx;
+}
+
+.bottom .two .text1 {
+  border-bottom: 1px dashed #999;
+  float: left;
+  width: 200%;
+  margin: 23rpx 0 0 0;
+  text-align: center;
+  color: #c81f00;
+  font-size: 22px;
+}
+
+.bottom .wuye {
+  clear: left;
+  float: left;
+  text-align: center;
+  margin: 30rpx 5rpx 0 40rpx;
+  margin-left: 12%;
+}
+
+.bottom .wuye image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.bottom .wuye text {
+  margin-top: -60rpx;
+  font-size: 0.6em;
+  font-family: 微软雅黑;
+  color: #999;
+  display: block;
+  margin-top: -50rpx;
+}
+
+.bottom .shuifei {
+  height: 30%;
+  margin-top: 30rpx;
+  float: left;
+  text-align: center;
+  margin: 30rpx 0 0 40rpx;
+}
+
+.bottom .shuifei image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.bottom .shuifei text {
+  display: block;
+  margin-top: -60rpx;
+  font-size: 0.6em;
+  font-family: 微软雅黑;
+  color: #999;
+  margin-top: -50rpx;
+}
+
+.bottom .tingchefei {
+  height: 30%;
+  margin-top: 30rpx;
+  float: left;
+  text-align: center;
+  margin: 30rpx 0 0 40rpx;
+}
+
+.bottom .tingchefei image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.bottom .tingchefei text {
+  display: block;
+  margin-top: -60rpx;
+  font-size: 0.6em;
+  font-family: 微软雅黑;
+  color: #999;
+  margin-top: -50rpx;
+}
+
+.bottom .kaisuo {
+  height: 30%;
+  margin-top: 30rpx;
+  float: right;
+  text-align: center;
+  margin: 30rpx 0 0 20rpx;
+  margin-right: 6%;
+}
+
+.bottom .kaisuo image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.bottom .kaisuo text {
+  display: block;
+  margin-top: -60rpx;
+  font-size: 0.6em;
+  font-family: 微软雅黑;
+  color: #999;
+  margin-top: -50rpx;
+}
+
+.bottom .four {
+  width: 100%;
+  clear: left;
+}
+
+.bottom .four button {
+  width: 100%;
+}
+
+.bucong {
+  height: 100rpx;
+  width: 100%;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.four button {
+  line-height: 2.8;
+}
+.all_money_img {
+  margin: 6% auto;
+}
+
+.all_money_img image {
+  width: 160px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}

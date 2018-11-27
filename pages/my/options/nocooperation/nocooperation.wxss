@@ -1,0 +1,96 @@
+/* pages/my/approve/approve.wxss */
+/* @import "/pages/public/public.wxss"; */
+.selectTitle{
+  margin: 5% 0% 5% 2%;
+}
+.tip{
+  color: #FF4F4F;
+  text-align: center;
+}
+.choosenew{
+  display: block;
+  text-align: center;
+  color: #FF4F4F;
+  font-size: 14px;
+}
+.carMessage{
+    width: 100%;
+    display: flex;
+    border-bottom: 1rpx solid #eee;
+    height: 100rpx;
+    align-items: center;
+}
+.carMessage input{
+    width: 75%;
+    margin-left: 5%;
+    font-size: 14px;
+}
+.carMessage text{
+    margin-left: 5%;
+    width: 30%;
+}
+button{
+    top:1em;
+}
+.choose{
+  display: block;
+  text-align: center;
+  color: #979797;
+  font-size: 14px;
+}
+.all{
+  padding-bottom: 20%;
+}
+.picker{
+  padding: 19rpx 26rpx;
+  background-color: #FFFFFF;
+}
+.weui-input{
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  background: url(http://img.zhangjiamenhu.com/genghuanxiaoqu.png) no-repeat;
+  background-size: 8%;
+  background-position-x: 95%;
+  background-position-y: 44%;
+  padding-left: 5%;
+}
+.topimag{
+  height: 100px;
+  width: 80px;
+  /*margin: 3% 0 0 38%;*/
+  text-align: center;
+  margin: 3% 38%;
+  display:inline-block;
+
+}
+.top_text{
+  display: block;
+  text-align: center;
+  color: #979797;
+  font-size: 0.7em;
+}
+.menu {display: block;}
+/*一级菜单*/
+.menu dt{
+  text-align: center;
+}
+/*二级菜单外部容器样式*/
+.menu dd{ /*position: absolute;width:30%;top:50px; right:0;z-index:999;*/ margin-top: 5%; margin-left: 10%;}
+/*二级菜单普通样式*/
+.menu li{
+   font-size: 14px; 
+   line-height: 34px;
+   color:white;
+   display: block;
+   padding-left:25%;
+   background-color:black;
+    border-bottom: 1px solid #dbdbdb; 
+    opacity: 0.8;
+   border-radius: 6%;
+}
+.show {
+   display: block;
+}
+.hidden {
+ display: none;
+}

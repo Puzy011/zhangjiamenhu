@@ -1,0 +1,203 @@
+/* pages/server/goods/housekeeping/housekeeping.wxss */
+page{
+  background: #fff;
+}
+.img image{
+  margin: 0 auto;
+  width: 500rpx;
+  margin-top: 70rpx;
+}
+.callto{
+  color: #999;
+  font-size: 26rpx;
+}
+.weui-panel__bd{
+   border-top: 1rpx solid #e5e5e5;   
+}
+.weui-media-box__hd_in-appmsg{
+  width: 180rpx;
+  height: auto;
+}
+.weui-media-box__thumb{
+  width: 180rpx;
+  height: auto;
+}
+.weui-media-box_appmsg{
+    /* border-top: 1rpx solid #e5e5e5;   */
+}
+.weui-media-box__info {
+  margin-top: 0rpx;
+}
+/*商品 1 */
+
+.list {
+display: flex;
+flex-wrap: wrap;
+width: 100%;
+padding: 5px 5px;
+}
+
+.goods-wrap {
+width: 50%;
+padding: 8px 5px;
+}
+
+.goods-img {
+width: 100%;
+height: 300rpx;
+border-radius: 10px;
+}
+
+.text {
+width: 100%;
+}
+
+.title {
+font-size: 14px;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+margin: 2px 0;
+}
+
+.prices {
+width: 100%;
+margin-top: 20rpx;
+}
+
+.prices > text {
+font-size: 14px;
+}
+.prices .new {
+font-weight: bold;
+color: #f44;
+margin-right: 5px;
+}
+.prices .old {
+color: #666;
+font-size: 12px;
+text-decoration: line-through;
+}
+/*预约购买  */
+.btn-buy1 {
+  position: relative;
+  float: left;
+  width: 40%;
+  margin-left: 190rpx;
+  margin-top: -62rpx;
+  color: #ecc302;
+  /* color: yellow; */
+  border: 1rpx solid #ecc302;
+  background-color: #fff;
+  padding: 0 0;
+}
+
+/* 3tab */
+
+.goods-tab-nav {
+  display: inline-block;
+  width: 33.3%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+  text-align: center;
+  color: #c7c7cb;
+}
+
+.goods-tab-nav.on {
+  color: #ecc302;
+  border-bottom: 5rpx solid #ecc302;
+}
+
+.goods-content {
+  /* padding: 40rpx; */
+}
+
+/* image */
+.weui-panel__bd{
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.weui-media-box__title {
+  width: 70%;
+}
+
+.weui-media-box__desc {
+  width: 70%;
+}
+
+.weui-media-box {
+  padding: 10px;
+}
+
+.weui-media-box__hd_in-appmsg {
+  margin-right: 0.8em;
+  width: 220rpx;
+  height: 220rpx;
+  line-height: 100px;
+  text-align: center;
+}
+
+.weui-media-box__hd_in-appmsg {
+  margin-right: 0.8em;
+  width: 220rpx;
+  height: 220rpx;
+  line-height: 100px;
+  text-align: center;
+}
+
+/* 购物车小图标 */
+
+.cart {
+  position: absolute;
+  float: right;
+  margin-top: -30rpx;
+  margin-left: 400rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 价格 */
+
+.price {
+  margin-top: 30rpx;
+  color: #f82f08;
+  font-size: 18px;
+  width: 60%;
+}
+.price > text {
+font-size: 14px;
+}
+.price .new {
+font-weight: bold;
+color: #f44;
+margin-right: 5px;
+}
+.price .old {
+color: #666;
+font-size: 12px;
+text-decoration: line-through;
+}
+/* 立即购买 */
+
+.btn-buy {
+  position: relative;
+  float: left;
+  width: 40%;
+  margin-left: 270rpx;
+  margin-top: -62rpx;
+  color: #ecc302;
+  /* color: yellow; */
+  border: 1rpx solid #ecc302;
+  background-color: #fff;
+  padding: 0 0;
+}
+
+button[size="mini"] {
+  display: inline-block;
+  line-height: 2.3;
+  font-size: 13px;
+  padding: 0 0.34em;
+}

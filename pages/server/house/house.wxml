@@ -1,0 +1,99 @@
+<view class="list">
+  <view class="goods-wrap" wx:for="{{list}}" wx:key="id">
+    <navigator url="details/details?id={{item.id}}">
+      <image class="goods-img" src="{{item.pic}}"></image>
+      <view class="text">
+        <view class="title">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="title">
+          <text class='red'>团购名额仅剩：{{item.count}}</text>
+        </view>
+         <view class="title">
+          <text class='orgron'>距结束仅剩：{{clock}}</text>
+        </view> 
+
+        <view class="prices">
+          <text class="new">￥{{item.now_price}}</text>
+          <text class="old">￥{{item.orginal_price}}</text>
+          <button class="btn-buy1" size="mini" type="default">购买预约</button>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<!-- <view class="weui-panel__bd" wx:for="{{list}}" data-gid="{{item.id}}" wx:key="{{index}}">
+  <navigator url="details/details?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image class="weui-media-box__thumb" src="{{item.pic}}" mode="widthFix" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">{{item.name}}</view>
+      <view class="weui-media-box__desc">团购名额还剩：{{item.count}}</view>
+      <view class="weui-media-box__desc red">倒计时：{{clock}} {{micro_second}}</view>
+      <view class="weui-media-box__desc price">￥{{item.now_price}}
+        <text class="old">￥{{item.orginal_price}}</text>
+      </view>
+      <button class="btn-buy" size="mini" type="default">购买预约</button>
+    </view>
+  </navigator>
+
+   <navigator url="details/details?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image class="weui-media-box__thumb" src="../../image/24go.png" mode="widthFix" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">新年大扫除特惠套餐</view>
+       <image class="cart" src="{{img}}v3.png" mode="widthFix" /> 
+      <view class="weui-media-box__desc red">团购团购团购</view>
+      <view class="weui-media-box__desc orgron">倒计时：{{clock}} {{micro_second}}</view>
+      <view class="weui-media-box__desc price">￥68
+      <text class="old">￥999{{goodData.goods[index].originalPrice}}</text>
+      </view>
+      <button class="btn-buy" size="mini" type="default">购买预约</button>
+    </view>
+  </navigator> 
+</view> -->
+<!-- <view class="page">
+  <view class="page__hd">
+    <view class="page__title"></view>
+     <view class="page__desc"></view> 
+  </view>
+  <view class="page__bd">
+    <view class="weui-grids">
+      <block wx:for="{{grids}}" wx:key="*this">
+        <navigator url="../housekeeping/housekeeping?id={{item.id}}" class="weui-grid" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="../../image/24go.png" />
+          <view class="weui-grid__label">{{item.name}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</view> -->
+<!-- <view>显示剩余时间：{{wxTimer.beginTime}}</view>
+<view>显示剩余秒数：{{wxTimerSecond}}</view> -->
+<!-- <view>时间{{time}}</view> -->
+<!-- <text style="display: block;text-align: center;font-size: 30px;color: #f60;margin-top: 50px;">
+	{{clock}} {{micro_second}}
+</text> 
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd blue">请选择家政服务项目</view>
+      <view class="weui-panel__bd" wx:for="{{content}}" wx:for-item="item" wx:key="*item">
+        <navigator url='../housekeeping/housekeeping?id={{item.id}}'   class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" data-index='{{item.id}}' >
+            <image class="weui-media-box__thumb" src="{{item.image}}" mode="widthFix" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" data-index='{{item.id}}' >
+            <view class="weui-media-box__title">{{item.name}}</view>
+             <view class="weui-media-box__desc ">{{item.txt}}</view> 
+          </view>
+          <view class='callto' data-index='{{item.id}}' >点击预约</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>-->
